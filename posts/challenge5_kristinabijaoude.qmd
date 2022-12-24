@@ -52,13 +52,14 @@ View(AB_NYC_2019)
 This dataset comprises of AirBnB listings in New York City by borough, neighborhood, hosts, and availability in the year of 2019. This CSV file has 48,895 rows and 16 columns. 
 
 ```{r}
-nrow(AB_NYC_2019)
-
-ncol(AB_NYC_2019)
-
-dim(AB_NYC_2019)
-
-summary(AB_NYC_2019)
+print(dfSummary(AB_NYC_2019,
+                        varnumbers = FALSE,
+                        plain.ascii  = FALSE, 
+                        style        = "grid", 
+                        graph.magnif = 0.70, 
+                        valid.col    = FALSE),
+      method = 'render',
+      table.classes = 'table-condensed')
 ```
 
 ## Tidy Data (as needed)
@@ -109,6 +110,16 @@ Document your work here.
 
 ## Univariate Visualizations
 
+<<<<<<< Updated upstream
+=======
+# one dot represents one AirBnB hosting
+ggplot() +
+  geom_polygon(data = AB_NYC_2019, aes(x=lat, y = long, group = long), fill="grey", alpha=0.3) +
+  geom_point(data= AB_NYC_2019, aes(x=lat, y=long)) +
+  ggtitle("AirBnb Hosting Locations in New York City") +
+  theme_void()
+```
+>>>>>>> Stashed changes
 
 ## Bivariate Visualization(s)
 Any additional comments?

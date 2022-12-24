@@ -38,8 +38,10 @@ Today's challenge is to:
 2)  tidy data (as needed, including sanity checks)
 3)  mutate variables as needed (including sanity checks)
 4)  Recreate at least two graphs from previous exercises, but introduce at least one additional dimension that you omitted before using ggplot functionality (color, shape, line, facet, etc) The goal is not to create unneeded [chart ink (Tufte)](https://www.edwardtufte.com/tufte/), but to concisely capture variation in additional dimensions that were collapsed in your earlier 2 or 3 dimensional graphs.
-   - Explain why you choose the specific graph type
-5) If you haven't tried in previous weeks, work this week to make your graphs "publication" ready with titles, captions, and pretty axis labels and other viewer-friendly features
+
+-   Explain why you choose the specific graph type
+
+5)  If you haven't tried in previous weeks, work this week to make your graphs "publication" ready with titles, captions, and pretty axis labels and other viewer-friendly features
 
 [R Graph Gallery](https://r-graph-gallery.com/) is a good starting point for thinking about what information is conveyed in standard graph types, and includes example R code. And anyone not familiar with Edward Tufte should check out his [fantastic books](https://www.edwardtufte.com/tufte/books_vdqi) and [courses on data visualizaton.](https://www.edwardtufte.com/tufte/courses)
 
@@ -49,13 +51,13 @@ Today's challenge is to:
 
 Read in one (or more) of the following datasets, using the correct R package and command.
 
-  - eggs ⭐
-  - abc_poll ⭐⭐
-  - australian_marriage ⭐⭐
-  - hotel_bookings ⭐⭐⭐
-  - air_bnb  ⭐⭐⭐
-  - us_hh ⭐⭐⭐⭐
-  - faostat ⭐⭐⭐⭐⭐
+-   eggs ⭐
+-   abc_poll ⭐⭐
+-   australian_marriage ⭐⭐
+-   hotel_bookings ⭐⭐⭐
+-   air_bnb ⭐⭐⭐
+-   us_hh ⭐⭐⭐⭐
+-   faostat ⭐⭐⭐⭐⭐
 
 ```{r}
 ```
@@ -80,6 +82,3 @@ Document your work here.
 ```
 
 ## Visualization with Multiple Dimensions
-
-
-
