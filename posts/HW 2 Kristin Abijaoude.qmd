@@ -1,5 +1,5 @@
 ---
-tiitle: "HW 2 "
+title: "HW 2 Kristin Abijaoude"
 author: "Kristin Abijaoude"
 desription: "More data wrangling: pivoting"
 date: "10/09/2022"
