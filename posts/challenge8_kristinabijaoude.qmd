@@ -1,14 +1,20 @@
 ---
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 title: "Challenge 8 Kristin Abijaoude"
 author: "Kristin Abijaoude"
 description: "Joining Data"
 date: "12/12/2022"
 =======
+=======
+>>>>>>> Stashed changes
 title: "Kristin Abijaoude Challenge 8"
 author: "Kristin Abijaoude"
 description: "Joining Data"
 date: "12/09/2022"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 format:
   html:
@@ -19,7 +25,11 @@ categories:
   - challenge_8
   - faostat
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - kristinabijaoude
+=======
+  - kristin_abijaoude
+>>>>>>> Stashed changes
 =======
   - kristin_abijaoude
 >>>>>>> Stashed changes
@@ -33,18 +43,25 @@ categories:
 library(tidyverse)
 library(ggplot2)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 library(ggridges)
 library(ggplot2)
 library(dplyr)
 library(viridis)
 library(hrbrthemes)
 library(plotly)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
 ```
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 ## Challenge Overview
 
@@ -142,6 +159,8 @@ colnames(countrydatawide) # include column names as well
 ```{r}
 
 =======
+=======
+>>>>>>> Stashed changes
 ## Read in data
 
 For this challenge, I used the FAOSTAT Livestock dataset and the FAOSTAT country dataset for the purpose of joining the two together. I didn't really know where to start on this challenge, so I went through some solutions for inspiration, but eventually, I wanted to figure out how to combine the two datasets myself.
@@ -234,6 +253,9 @@ afg <- afghan %>%
 # make it interactive
 afg <- ggplotly(afg, tooltip="text")
 afg
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 ```
 
