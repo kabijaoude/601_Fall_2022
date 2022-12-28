@@ -39,6 +39,7 @@ This dataset comprises of AirBnB listings in New York City by borough, neighborh
 
 
 ```{r}
+<<<<<<< Updated upstream
 print(dfSummary(AB_NYC_2019,
                         varnumbers = FALSE,
                         plain.ascii  = FALSE, 
@@ -47,6 +48,15 @@ print(dfSummary(AB_NYC_2019,
                         valid.col    = FALSE),
       method = 'render',
       table.classes = 'table-condensed')
+=======
+nrow(AB_NYC_2019)
+
+ncol(AB_NYC_2019)
+
+dim(AB_NYC_2019)
+
+summary(AB_NYC_2019)
+>>>>>>> Stashed changes
 ```
 
 

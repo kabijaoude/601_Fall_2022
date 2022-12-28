@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kristin Abijaoude">
+<meta name="dcterms.date" content="2022-11-15">
+
+<title>- HW 3 Kristin Abijaoude</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/DACSS_Round_Network.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<meta name="twitter:title" content="- HW 3 Kristin Abijaoude">
+<meta name="twitter:description" content="::: panel-tabset ## Pathogen: Read Data">
+<meta name="twitter:creator" content="@UMassDACSS">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../index.html">
+    <img src="../images/UMass White Wordmark Horiz.png" alt="">
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/DACSS">
+ </a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">Contributors</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://umass.edu/sbs/dacss">DACSS</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/DACSS"><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">HW 3 Kristin Abijaoude</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+  <div class="quarto-categories">
+    <div class="quarto-category">hw3</div>
+    <div class="quarto-category">pathogen</div>
+    <div class="quarto-category">debt</div>
+    <div class="quarto-category">kristin_abijaoude</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kristin Abijaoude </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 15, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="pathogen" class="level4">
+<h4 class="anchored" data-anchor-id="pathogen">Pathogen</h4>
+<p>::: panel-tabset ## Pathogen: Read Data</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pathogen <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"/Users/kristinabijaoude/Documents/GitHub/Github Help/601_Fall_2022/posts/_data/Total_cost_for_top_15_pathogens_2018.xlsx"</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">range =</span> <span class="fu">cell_rows</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">20</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"Pathogen"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"Cases"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"Cost"</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>pathogen</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 3
+   Pathogen                                                         Cases   Cost
+   &lt;chr&gt;                                                            &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Campylobacter spp. (all species)                                8.45e5 2.18e9
+ 2 Clostridium perfringens                                         9.66e5 3.84e8
+ 3 Cryptosporidium spp. (all species)                              5.76e4 5.84e7
+ 4 Cyclospora cayetanensis                                         1.14e4 2.57e6
+ 5 Listeria monocytogenes                                          1.59e3 3.19e9
+ 6 Norovirus                                                       5.46e6 2.57e9
+ 7 Salmonella (non-typhoidal species)                              1.03e6 4.14e9
+ 8 Shigella (all species)                                          1.31e5 1.59e8
+ 9 Shiga toxin-producing Escherichia coli O157 (STEC O157)         6.32e4 3.11e8
+10 non-O157 Shiga toxin-producing Escherichia coli (STEC non-O157) 1.13e5 3.17e7
+11 Toxoplasma gondii                                               8.67e4 3.74e9
+12 Vibrio parahaemolyticus                                         3.47e4 4.57e7
+13 Vibrio vulnificus                                               9.6 e1 3.59e8
+14 Vibrio non-cholera species other than V. parahaemolyticus and … 1.76e4 8.17e7
+15 Yersinia enterocolitica                                         9.77e4 3.13e8</code></pre>
+</div>
+</div>
+<p>Here, we are reading the dataset for the top 15 pathogen in terms of costs of damages and number of confirmed cases. It consists of 15 types of pathogens, the number of confirmed cases of each pathogen, and the cost in damages causes by said pathogen.</p>
+<p>::: panel-tabset ## Pathogen: Tidy and Mutate Data</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pathogen_tidy <span class="ot">&lt;-</span> pathogen <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Pathogen, Cases, Cost)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>pathogen_tidy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 3
+   Pathogen                                                         Cases   Cost
+   &lt;chr&gt;                                                            &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Campylobacter spp. (all species)                                8.45e5 2.18e9
+ 2 Clostridium perfringens                                         9.66e5 3.84e8
+ 3 Cryptosporidium spp. (all species)                              5.76e4 5.84e7
+ 4 Cyclospora cayetanensis                                         1.14e4 2.57e6
+ 5 Listeria monocytogenes                                          1.59e3 3.19e9
+ 6 Norovirus                                                       5.46e6 2.57e9
+ 7 Salmonella (non-typhoidal species)                              1.03e6 4.14e9
+ 8 Shigella (all species)                                          1.31e5 1.59e8
+ 9 Shiga toxin-producing Escherichia coli O157 (STEC O157)         6.32e4 3.11e8
+10 non-O157 Shiga toxin-producing Escherichia coli (STEC non-O157) 1.13e5 3.17e7
+11 Toxoplasma gondii                                               8.67e4 3.74e9
+12 Vibrio parahaemolyticus                                         3.47e4 4.57e7
+13 Vibrio vulnificus                                               9.6 e1 3.59e8
+14 Vibrio non-cholera species other than V. parahaemolyticus and … 1.76e4 8.17e7
+15 Yersinia enterocolitica                                         9.77e4 3.13e8</code></pre>
+</div>
+</div>
+<p>To start off, we drop missing data with <code>drop_na()</code>. Next, we rename the variables to more specific names with <code>rename()</code>.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pathogen_tidy <span class="ot">&lt;-</span> pathogen_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Type of Pathogen"</span> <span class="ot">=</span> <span class="st">"Pathogen"</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Number of Confirmed Cases"</span> <span class="ot">=</span> <span class="st">"Cases"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Costs in Damages in $"</span> <span class="ot">=</span> <span class="st">"Cost"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>pathogen_tidy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 3
+   `Type of Pathogen`                                            Numbe…¹ Costs…²
+   &lt;chr&gt;                                                           &lt;dbl&gt;   &lt;dbl&gt;
+ 1 Campylobacter spp. (all species)                               845024  2.18e9
+ 2 Clostridium perfringens                                        965958  3.84e8
+ 3 Cryptosporidium spp. (all species)                              57616  5.84e7
+ 4 Cyclospora cayetanensis                                         11407  2.57e6
+ 5 Listeria monocytogenes                                           1591  3.19e9
+ 6 Norovirus                                                     5461731  2.57e9
+ 7 Salmonella (non-typhoidal species)                            1027561  4.14e9
+ 8 Shigella (all species)                                         131254  1.59e8
+ 9 Shiga toxin-producing Escherichia coli O157 (STEC O157)         63153  3.11e8
+10 non-O157 Shiga toxin-producing Escherichia coli (STEC non-O1…  112752  3.17e7
+11 Toxoplasma gondii                                               86686  3.74e9
+12 Vibrio parahaemolyticus                                         34664  4.57e7
+13 Vibrio vulnificus                                                  96  3.59e8
+14 Vibrio non-cholera species other than V. parahaemolyticus an…   17564  8.17e7
+15 Yersinia enterocolitica                                         97656  3.13e8
+# … with abbreviated variable names ¹​`Number of Confirmed Cases`,
+#   ²​`Costs in Damages in $`</code></pre>
+</div>
+</div>
+<p>Next, we convert the variables with the <code>paste()</code> command below. I specify the currency <code>$</code> for the first variable, then I separated the numbers with the comma. This way, it’s easier to read the dataset.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert numeric to currency</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pathogen_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Costs in Damages in $</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">'$'</span>,<span class="fu">formatC</span>(pathogen_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Costs in Damages in $</span><span class="st">`</span>, <span class="at">big.mark =</span> <span class="st">','</span>, <span class="at">format =</span> <span class="st">'f'</span>)) </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># i'm not sure where the extra numbers came from</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># add commas</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>pathogen_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Number of Confirmed Cases</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">formatC</span>(pathogen_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Number of Confirmed Cases</span><span class="st">`</span>, <span class="at">format=</span><span class="st">"d"</span>, <span class="at">big.mark=</span><span class="st">","</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># sanity checkpoint</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>pathogen_tidy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 3
+   `Type of Pathogen`                                            Numbe…¹ Costs…²
+   &lt;chr&gt;                                                         &lt;chr&gt;   &lt;chr&gt;  
+ 1 Campylobacter spp. (all species)                              845,024 $ 2,18…
+ 2 Clostridium perfringens                                       965,958 $ 384,…
+ 3 Cryptosporidium spp. (all species)                            57,616  $ 58,3…
+ 4 Cyclospora cayetanensis                                       11,407  $ 2,57…
+ 5 Listeria monocytogenes                                        1,591   $ 3,18…
+ 6 Norovirus                                                     5,461,… $ 2,56…
+ 7 Salmonella (non-typhoidal species)                            1,027,… $ 4,14…
+ 8 Shigella (all species)                                        131,254 $ 159,…
+ 9 Shiga toxin-producing Escherichia coli O157 (STEC O157)       63,153  $ 311,…
+10 non-O157 Shiga toxin-producing Escherichia coli (STEC non-O1… 112,752 $ 31,7…
+11 Toxoplasma gondii                                             86,686  $ 3,74…
+12 Vibrio parahaemolyticus                                       34,664  $ 45,7…
+13 Vibrio vulnificus                                             96      $ 359,…
+14 Vibrio non-cholera species other than V. parahaemolyticus an… 17,564  $ 81,7…
+15 Yersinia enterocolitica                                       97,656  $ 313,…
+# … with abbreviated variable names ¹​`Number of Confirmed Cases`,
+#   ²​`Costs in Damages in $`</code></pre>
+</div>
+</div>
+<p>::: panel-tabset ## Pathogen: Visualizing Data</p>
+<p>Now that I tidied the dataset, I will use a couple of graphs to visualize the damages those pathogens did. I create the dataframe with <code>data.frame()</code>, then use <code>ggplot</code> commands to make my graphs. I added the <code>coord_flip()</code> command for easier reading.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ill <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Pathogens =</span><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Campylobacter spp."</span>,<span class="st">"Clostridium perfringens"</span>,<span class="st">"Cryptosporidium spp."</span>,<span class="st">"Cyclospora cayetanensis"</span>,<span class="st">"Listeria monocytogenes"</span>, <span class="st">"Norovirus"</span>, <span class="st">"Salmonella"</span>, <span class="st">"Shigella"</span>, <span class="st">"Shiga toxin-producing E.Coli"</span>, <span class="st">"Non-Shiga Toxin-Producing E. coli"</span>, <span class="st">"Toxoplasma gondii"</span>, <span class="st">"Vibrio parahaemolyticus"</span>, <span class="st">"Vibrio vulnificus"</span>, <span class="st">"Other Vibrio non-cholera species"</span>, <span class="st">"Yersinia enterocolitica"</span>)),  </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Cases =</span><span class="fu">c</span>(<span class="dv">845024</span>, <span class="dv">965958</span>, <span class="dv">57616</span>, <span class="dv">11407</span>, <span class="dv">1591</span>, <span class="dv">5461731</span>, <span class="dv">1027561</span>, <span class="dv">131254</span>, <span class="dv">63153</span>, <span class="dv">112752</span>, <span class="dv">86686</span>, <span class="dv">34664</span>, <span class="dv">96</span>, <span class="dv">17564</span>, <span class="dv">97656</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>ill</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                           Pathogens   Cases
+1                 Campylobacter spp.  845024
+2            Clostridium perfringens  965958
+3               Cryptosporidium spp.   57616
+4            Cyclospora cayetanensis   11407
+5             Listeria monocytogenes    1591
+6                          Norovirus 5461731
+7                         Salmonella 1027561
+8                           Shigella  131254
+9       Shiga toxin-producing E.Coli   63153
+10 Non-Shiga Toxin-Producing E. coli  112752
+11                 Toxoplasma gondii   86686
+12           Vibrio parahaemolyticus   34664
+13                 Vibrio vulnificus      96
+14  Other Vibrio non-cholera species   17564
+15           Yersinia enterocolitica   97656</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ill, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Pathogens, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> Cases,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill=</span>Cases)) <span class="sc">+</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span><span class="st">"lightgreen"</span>) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Cases), </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Pathogen Types"</span>, </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of Cases"</span>, </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">title  =</span> <span class="st">"Pathogens by Number of Confirmed Cases"</span>) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hw-3-Kristin-Abijaoude_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create data frame</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>damage <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Pathogens =</span><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Campylobacter spp."</span>,<span class="st">"Clostridium perfringens"</span>,<span class="st">"Cryptosporidium spp."</span>,<span class="st">"Cyclospora cayetanensis"</span>,<span class="st">"Listeria monocytogenes"</span>, <span class="st">"Norovirus"</span>, <span class="st">"Salmonella"</span>, <span class="st">"Shigella"</span>, <span class="st">"Shiga toxin-producing E.Coli"</span>, <span class="st">"Non-Shiga Toxin-Producing E. coli"</span>, <span class="st">"Toxoplasma gondii"</span>, <span class="st">"Vibrio parahaemolyticus"</span>, <span class="st">"Vibrio vulnificus"</span>, <span class="st">"Other Vibrio non-cholera species"</span>, <span class="st">"Yersinia enterocolitica"</span>)),  </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Damages =</span><span class="fu">c</span>(<span class="dv">2181485783</span>, <span class="dv">384277856</span>, <span class="dv">58394152</span>, <span class="dv">2571518</span>, <span class="dv">3189686110</span>, <span class="dv">2566984191</span>, <span class="dv">4142179161</span>, <span class="dv">159202402</span>, <span class="dv">311036907</span>, <span class="dv">31701852</span>, <span class="dv">3744008907</span>, <span class="dv">45735332</span>, <span class="dv">359481557</span>, <span class="dv">81749064</span>, <span class="dv">313297920</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>damage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                           Pathogens    Damages
+1                 Campylobacter spp. 2181485783
+2            Clostridium perfringens  384277856
+3               Cryptosporidium spp.   58394152
+4            Cyclospora cayetanensis    2571518
+5             Listeria monocytogenes 3189686110
+6                          Norovirus 2566984191
+7                         Salmonella 4142179161
+8                           Shigella  159202402
+9       Shiga toxin-producing E.Coli  311036907
+10 Non-Shiga Toxin-Producing E. coli   31701852
+11                 Toxoplasma gondii 3744008907
+12           Vibrio parahaemolyticus   45735332
+13                 Vibrio vulnificus  359481557
+14  Other Vibrio non-cholera species   81749064
+15           Yersinia enterocolitica  313297920</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create graph</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(damage, <span class="fu">aes</span>(<span class="at">x=</span>Pathogens, <span class="at">y=</span>Damages)) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"darkblue"</span>)<span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Types of Pathogen"</span>) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Costs in Damages"</span>) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Pathogens by Costs in Damages"</span>) <span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hw-3-Kristin-Abijaoude_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Here’s a scatterplot of the pathogens, but this time, there are labels I added with <code>geom_label()</code> and adjusted the font settings with it. In addition, I customized the graph with various sources, such as <code>ggtile()</code> and <code>comma_format()</code>.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create data frame</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>pathogens <span class="ot">&lt;-</span> pathogen_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">costs =</span> <span class="fu">parse_number</span>(<span class="st">`</span><span class="at">Costs in Damages in $</span><span class="st">`</span>),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">cases =</span> <span class="fu">parse_number</span>(<span class="st">`</span><span class="at">Number of Confirmed Cases</span><span class="st">`</span>))</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pathogens, <span class="fu">aes</span>(cases, costs, <span class="at">label =</span> <span class="st">`</span><span class="at">Type of Pathogen</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Costs in Damages ($)"</span>) <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Number of Confirmed Cases"</span>) <span class="sc">+</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Top 15 Pathogens by Cases and Costs in Damages"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hw-3-Kristin-Abijaoude_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Here is a close up using <code>facet_zoom()</code> since there are several overlaps in the graph.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># zoom in</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pathogens, <span class="fu">aes</span>(cases, costs, <span class="at">label =</span> <span class="st">`</span><span class="at">Type of Pathogen</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_zoom</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">5.0e+09</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hw-3-Kristin-Abijaoude_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>From face value, we can see how some pathogens are either deadlier or costlier than other pathogens. For example, salmonella cost the most with over $4 billion in damages, despite having fewer confirmed cases than Norovirus with a little bit over 1 million confirmed cases compared to over 5 million of confirmed Norovirus cases.</p>
+<p>However, the average person is neither a microbiologist nor an epidemiologist, so we can’t tell which pathogen is deadlier, why some are costlier than others, or if there’s a correlation between costs in damages and number of confirmed cases from this graph alone. If there were more information on the original dataset, I could improve my visualizations in several different ways, such as measuring the severity of each pathogen (and maybe add photos of each pathogen in the graphs) as well as infection rates, diseases caused by them, and where and how the diseases spread.</p>
+<p>::: panel-tabset ## Pathogen: Statistical Analysis</p>
+<p>Going back to middle school math:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical Analysis for Cases</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>pathogen <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean.cases =</span> <span class="fu">mean</span>(Cases),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">Median.cases =</span> <span class="fu">median</span>(Cases),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">max.cases =</span> <span class="fu">max</span>(Cases),</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">min.cases =</span> <span class="fu">min</span>(Cases),</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">sum.cases =</span> <span class="fu">sum</span>(Cases))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  mean.cases Median.cases max.cases min.cases sum.cases
+       &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1    594314.        86686   5461731        96   8914713</code></pre>
+</div>
+</div>
+<p>The average amount of confirmed cases are 594,314 cases, with the norovirus having the most with over 5,000,000 while Vibrio vulnificus with the least amount with 96 cases. Collectively, these pathogens infected a total of 8,914,713 people.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Vibrio_vulnificus_01.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Vibrio vulnificus</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Norwalk.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Norovirus</figcaption><p></p>
+</figure>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical Analysis for Cost in damages</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>pathogen <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean.cost =</span> <span class="fu">mean</span>(Cost),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">median.cost =</span> <span class="fu">median</span>(Cost),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">max.cost =</span> <span class="fu">max</span>(Cost),</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">Min.cost =</span> <span class="fu">min</span>(Cost),</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">sum.cost =</span> <span class="fu">sum</span>(Cost))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+    mean.cost median.cost    max.cost Min.cost     sum.cost
+        &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;
+1 1171452847.  313297920. 4142179161. 2571518. 17571792712.</code></pre>
+</div>
+</div>
+<p>As for the cost, the average cost in damages is <code>$1,171,452,847</code>, with Salmonella costing the most with <code>$4,142,179,161</code>, while Cyclospora cayetanensis cost <code>$2,571,518</code> in damages. Collectively, these pathogens cost <code>$17,571,792,712</code> in damages.</p>
+<p><img src="salmonella_salmonellosis.jpeg" class="img-fluid" alt="Salmonella"> Salmonella</p>
+<p><img src="Cyclospora_cayetanensis_stained.jpeg" class="img-fluid" alt="Cyclospora cayetanensis"> Cyclospora cayetanensis</p>
+</section>
+<section id="debt-in-trillions" class="level4">
+<h4 class="anchored" data-anchor-id="debt-in-trillions">Debt in Trillions</h4>
+<p>::: panel-tabset ## Debt in Trillions: Read Data</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>debts <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"/Users/kristinabijaoude/Documents/GitHub/Github Help/601_Fall_2022/posts/_data/debt_in_trillions.xlsx"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>debts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 74 × 8
+   `Year and Quarter` Mortgage HE Revolvin…¹ Auto …² Credi…³ Stude…⁴ Other Total
+   &lt;chr&gt;                 &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 03:Q1                  4.94         0.242   0.641   0.688   0.241 0.478  7.23
+ 2 03:Q2                  5.08         0.26    0.622   0.693   0.243 0.486  7.38
+ 3 03:Q3                  5.18         0.269   0.684   0.693   0.249 0.477  7.56
+ 4 03:Q4                  5.66         0.302   0.704   0.698   0.253 0.449  8.07
+ 5 04:Q1                  5.84         0.328   0.72    0.695   0.260 0.446  8.29
+ 6 04:Q2                  5.97         0.367   0.743   0.697   0.263 0.423  8.46
+ 7 04:Q3                  6.21         0.426   0.751   0.706   0.33  0.41   8.83
+ 8 04:Q4                  6.36         0.468   0.728   0.717   0.346 0.423  9.04
+ 9 05:Q1                  6.51         0.502   0.725   0.71    0.364 0.394  9.21
+10 05:Q2                  6.70         0.528   0.774   0.717   0.374 0.402  9.49
+# … with 64 more rows, and abbreviated variable names ¹​`HE Revolving`,
+#   ²​`Auto Loan`, ³​`Credit Card`, ⁴​`Student Loan`</code></pre>
+</div>
+</div>
+<p>Now we are going to look at another dataset about debt held by Americans in trillions of dollars from 2003 to 2021- the following types of debt listed are Mortgages, Home Equity Revolving loans, Auto loans, Credit Card debt, Student loans, and other loans.</p>
+<p>::: panel-tabset ## Debt in Trillions: Tidy and Mutate Data</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>debt_tidy <span class="ot">&lt;-</span> debts <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">parse_date_time</span>(<span class="st">`</span><span class="at">Year and Quarter</span><span class="st">`</span>, <span class="at">orders=</span><span class="st">"yq"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Year and Quarter</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(<span class="st">`</span><span class="at">date</span><span class="st">`</span>, <span class="at">.before =</span> <span class="st">`</span><span class="at">Mortgage</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Date"</span> <span class="ot">=</span> <span class="st">"date"</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>debt_tidy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 74 × 8
+   Date                Mortgage HE Revolvi…¹ Auto …² Credi…³ Stude…⁴ Other Total
+   &lt;dttm&gt;                 &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 2003-01-01 00:00:00     4.94        0.242   0.641   0.688   0.241 0.478  7.23
+ 2 2003-04-01 00:00:00     5.08        0.26    0.622   0.693   0.243 0.486  7.38
+ 3 2003-07-01 00:00:00     5.18        0.269   0.684   0.693   0.249 0.477  7.56
+ 4 2003-10-01 00:00:00     5.66        0.302   0.704   0.698   0.253 0.449  8.07
+ 5 2004-01-01 00:00:00     5.84        0.328   0.72    0.695   0.260 0.446  8.29
+ 6 2004-04-01 00:00:00     5.97        0.367   0.743   0.697   0.263 0.423  8.46
+ 7 2004-07-01 00:00:00     6.21        0.426   0.751   0.706   0.33  0.41   8.83
+ 8 2004-10-01 00:00:00     6.36        0.468   0.728   0.717   0.346 0.423  9.04
+ 9 2005-01-01 00:00:00     6.51        0.502   0.725   0.71    0.364 0.394  9.21
+10 2005-04-01 00:00:00     6.70        0.528   0.774   0.717   0.374 0.402  9.49
+# … with 64 more rows, and abbreviated variable names ¹​`HE Revolving`,
+#   ²​`Auto Loan`, ³​`Credit Card`, ⁴​`Student Loan`</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># i tried to separate the year and quarter with str_extract(), but i wasn't having any luck with converting the century, so i had to look at the solutions in class for the most effective code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Admittedly, I had trouble with separating the year and quarter. Going forward, whenever I come across a problem like this, the go-to codes are <code>mutate()</code> and <code>parse_date_time()</code>. With those codes, we get 4 different dates in the same year, such as 2003-01-01, 2003-04-01, 2003-07-01 and so on. These are the fiscal quarters for each year, normally used in government reports on the country’s economy and other monetary policies. In addition, I removed the unnecessary data and relocated the year back into the first variable with <code>relocate()</code>.</p>
+<p>For clarification, the numberes represent the amount of debt owed in trillions of dollars, with the vast majority of that debt owed from mortgages.</p>
+<p>::: panel-tabset ## Debt in Trillion: Visualizing Data</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create data</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>dates <span class="ot">&lt;-</span> <span class="fu">ymd</span>(debt_tidy<span class="sc">$</span>Date)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>mortgage <span class="ot">&lt;-</span> debt_tidy<span class="sc">$</span>Mortgage</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>HE_Rev <span class="ot">&lt;-</span> debt_tidy<span class="sc">$</span><span class="st">`</span><span class="at">HE Revolving</span><span class="st">`</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>auto <span class="ot">&lt;-</span> debt_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Auto Loan</span><span class="st">`</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>CC <span class="ot">&lt;-</span> debt_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Credit Card</span><span class="st">`</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>student <span class="ot">&lt;-</span> debt_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Student Loan</span><span class="st">`</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># create graph</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> debt_tidy, <span class="fu">aes</span>(<span class="at">x=</span> <span class="st">`</span><span class="at">dates</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> mortgage, <span class="at">color =</span> <span class="st">"Mortgage"</span>)) <span class="sc">+</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> HE_Rev,  <span class="at">color=</span><span class="st">"HE Revolving"</span>)) <span class="sc">+</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> auto, <span class="at">color=</span><span class="st">"Auto Loans"</span>)) <span class="sc">+</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span> CC, <span class="at">color =</span><span class="st">"Credit Card"</span>))<span class="sc">+</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> student, <span class="at">color =</span> <span class="st">"Student Loans"</span>))<span class="sc">+</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> other,  <span class="at">color =</span> <span class="st">"Other"</span>))<span class="sc">+</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Debt in Trillions of Dollars"</span>)<span class="sc">+</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Debt Held by Americans from 2003 to 2021"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `geom_line()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 6th layer.
+Caused by error in `FUN()`:
+! object 'other' not found</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pivot longer with pivot_longer</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>debt_pivot <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(debt_tidy, <span class="at">cols =</span> Mortgage<span class="sc">:</span>Other, <span class="at">names_to =</span> <span class="st">"type"</span>, <span class="at">values_to =</span> <span class="st">"debt"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Total)) <span class="sc">%&gt;%</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"Type of Loan"</span> <span class="ot">=</span> <span class="fu">as.factor</span>(type)) <span class="sc">%&gt;%</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(type))</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>debt_pivot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 444 × 3
+   Date                 debt `Type of Loan`
+   &lt;dttm&gt;              &lt;dbl&gt; &lt;fct&gt;         
+ 1 2003-01-01 00:00:00 4.94  Mortgage      
+ 2 2003-01-01 00:00:00 0.242 HE Revolving  
+ 3 2003-01-01 00:00:00 0.641 Auto Loan     
+ 4 2003-01-01 00:00:00 0.688 Credit Card   
+ 5 2003-01-01 00:00:00 0.241 Student Loan  
+ 6 2003-01-01 00:00:00 0.478 Other         
+ 7 2003-04-01 00:00:00 5.08  Mortgage      
+ 8 2003-04-01 00:00:00 0.26  HE Revolving  
+ 9 2003-04-01 00:00:00 0.622 Auto Loan     
+10 2003-04-01 00:00:00 0.693 Credit Card   
+# … with 434 more rows</code></pre>
+</div>
+</div>
+<p>I pivoted this data from wide to long with <code>pivot_longer()</code> because I want to facet, or split the chart into smaller components, with <code>facet_wrap()</code>.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(debt_pivot, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Date</span><span class="st">`</span>, <span class="st">`</span><span class="at">debt</span><span class="st">`</span>)) <span class="sc">+</span>                                    </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(. <span class="sc">~</span> <span class="st">`</span><span class="at">Type of Loan</span><span class="st">`</span>) <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Debt Held in Trillions of Dollars"</span>) <span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Date and Quarter"</span>) <span class="sc">+</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Debt Held by Americans from 2003 to 2021"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Hw-3-Kristin-Abijaoude_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>As mentioned beforehand, the vast majority of debt held is mortgages, and that seems to be rising in a faster race in comparison to other types of debts.</p>
+<p>As much as this dataset has more information than the pathogen, there are some questions left unanswered:</p>
+<ul>
+<li><p>What is the average American household income or individual American income?</p></li>
+<li><p>How did the recessions of 2008 and 2020 affect debt, or those who have debt?</p></li>
+<li><p>How does debt affect unemployment, inflation, GDP, purchasing power, and other metrics used by economics?</p></li>
+</ul>
+<p>Aforementioned in the pathogen dataset, when there’s more information, I could improve my visualizations by computing relationships between various economic factors (for example, plot correlation between GDP and debt) with various graphs, especially scatterplot and trends.</p>
+<p>::: panel-tabset ## Debt in Trillion: Statistical Analysis</p>
+<p>Before I explain further, let me explain the term standard deviation. We all know what the mean is, or the average, but the standard deviation tells us how far or near the measurements of a group are from the average. In other words, the lower the standard deviation is, the closer the measurements are to the average, while the higher, the more spread out the measurements are.</p>
+<p>When I measure the mean and standard deviation here, the mortgage is clearly the outlier, as the majority of the debt held is from mortgages. The standard deviation is 1.18 sd, which means the measurements for mortgages have more outliers than other debt type. Visually, this is reflected in the above graphs I computed.</p>
+<p>Looking at the sum column, Americans collected up to 871 trillion dollars in debt from 2003 to 2021, with the vast majority of it from mortgages.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>ds_debt<span class="ot">&lt;-</span>debt_pivot<span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Type of Loan</span><span class="st">`</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean=</span><span class="fu">mean</span>(debt),</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd=</span><span class="fu">sd</span>(debt),</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">sum=</span><span class="fu">sum</span>(debt))</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>ds_debt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  `Type of Loan`  mean     sd   sum
+  &lt;fct&gt;          &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 Auto Loan      0.931 0.235   68.9
+2 Credit Card    0.757 0.0688  56.0
+3 HE Revolving   0.516 0.124   38.2
+4 Mortgage       8.27  1.18   612. 
+5 Other          0.383 0.0458  28.3
+6 Student Loan   0.919 0.428   68.0</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how much debt did Americans collect in total</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(ds_debt<span class="sc">$</span>sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 871.6738</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">dfSummary</span>(debt_tidy,</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">varnumbers =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">plain.ascii  =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">style        =</span> <span class="st">"grid"</span>, </span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">graph.magnif =</span> <span class="fl">0.70</span>, </span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">valid.col    =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">method =</span> <span class="st">'render'</span>,</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">table.classes =</span> <span class="st">'table-condensed'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-error">
+<pre><code>Error in dfSummary(debt_tidy, varnumbers = FALSE, plain.ascii = FALSE, : could not find function "dfSummary"</code></pre>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="DACSS/DACSS_[Course Number]_[Course Name_[term]" data-repo-id="" data-category="Announcements" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb38" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "HW 3 Kristin Abijaoude"</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Kristin Abijaoude"</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="an">desription:</span><span class="co"> "Reading in data and creating a post"</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "11/15/2022"</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-copy: true</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="co">  - hw3</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="co">  - pathogen</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="co">  - debt</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a><span class="co">  - kristin_abijaoude</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-33"><a href="#cb38-33" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>)</span>
+<span id="cb38-34"><a href="#cb38-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-35"><a href="#cb38-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-36"><a href="#cb38-36" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Pathogen</span></span>
+<span id="cb38-37"><a href="#cb38-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-38"><a href="#cb38-38" aria-hidden="true" tabindex="-1"></a>::: panel-tabset <span class="sc">\#</span># Pathogen: Read Data</span>
+<span id="cb38-39"><a href="#cb38-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-42"><a href="#cb38-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-43"><a href="#cb38-43" aria-hidden="true" tabindex="-1"></a>pathogen <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"/Users/kristinabijaoude/Documents/GitHub/Github Help/601_Fall_2022/posts/_data/Total_cost_for_top_15_pathogens_2018.xlsx"</span>,</span>
+<span id="cb38-44"><a href="#cb38-44" aria-hidden="true" tabindex="-1"></a>                              <span class="at">range =</span> <span class="fu">cell_rows</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">20</span>),</span>
+<span id="cb38-45"><a href="#cb38-45" aria-hidden="true" tabindex="-1"></a>                              <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"Pathogen"</span>,</span>
+<span id="cb38-46"><a href="#cb38-46" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"Cases"</span>,</span>
+<span id="cb38-47"><a href="#cb38-47" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"Cost"</span>))</span>
+<span id="cb38-48"><a href="#cb38-48" aria-hidden="true" tabindex="-1"></a>pathogen</span>
+<span id="cb38-49"><a href="#cb38-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-50"><a href="#cb38-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-51"><a href="#cb38-51" aria-hidden="true" tabindex="-1"></a>Here, we are reading the dataset for the top 15 pathogen in terms of costs of damages and number of confirmed cases. It consists of 15 types of pathogens, the number of confirmed cases of each pathogen, and the cost in damages causes by said pathogen.</span>
+<span id="cb38-52"><a href="#cb38-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-53"><a href="#cb38-53" aria-hidden="true" tabindex="-1"></a>::: panel-tabset <span class="sc">\#</span># Pathogen: Tidy and Mutate Data</span>
+<span id="cb38-54"><a href="#cb38-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-57"><a href="#cb38-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-58"><a href="#cb38-58" aria-hidden="true" tabindex="-1"></a>pathogen_tidy <span class="ot">&lt;-</span> pathogen <span class="sc">%&gt;%</span></span>
+<span id="cb38-59"><a href="#cb38-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Pathogen, Cases, Cost)</span>
+<span id="cb38-60"><a href="#cb38-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-61"><a href="#cb38-61" aria-hidden="true" tabindex="-1"></a>pathogen_tidy</span>
+<span id="cb38-62"><a href="#cb38-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-63"><a href="#cb38-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-64"><a href="#cb38-64" aria-hidden="true" tabindex="-1"></a>To start off, we drop missing data with <span class="in">`drop_na()`</span>. Next, we rename the variables to more specific names with <span class="in">`rename()`</span>.</span>
+<span id="cb38-65"><a href="#cb38-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-68"><a href="#cb38-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-69"><a href="#cb38-69" aria-hidden="true" tabindex="-1"></a>pathogen_tidy <span class="ot">&lt;-</span> pathogen_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb38-70"><a href="#cb38-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Type of Pathogen"</span> <span class="ot">=</span> <span class="st">"Pathogen"</span>,</span>
+<span id="cb38-71"><a href="#cb38-71" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Number of Confirmed Cases"</span> <span class="ot">=</span> <span class="st">"Cases"</span>,</span>
+<span id="cb38-72"><a href="#cb38-72" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Costs in Damages in $"</span> <span class="ot">=</span> <span class="st">"Cost"</span>)</span>
+<span id="cb38-73"><a href="#cb38-73" aria-hidden="true" tabindex="-1"></a>pathogen_tidy</span>
+<span id="cb38-74"><a href="#cb38-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-75"><a href="#cb38-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-76"><a href="#cb38-76" aria-hidden="true" tabindex="-1"></a>Next, we convert the variables with the <span class="in">`paste()`</span> command below. I specify the currency <span class="in">`$`</span> for the first variable, then I separated the numbers with the comma. This way, it's easier to read the dataset.</span>
+<span id="cb38-77"><a href="#cb38-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-80"><a href="#cb38-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-81"><a href="#cb38-81" aria-hidden="true" tabindex="-1"></a><span class="co"># convert numeric to currency</span></span>
+<span id="cb38-82"><a href="#cb38-82" aria-hidden="true" tabindex="-1"></a>pathogen_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Costs in Damages in $</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">'$'</span>,<span class="fu">formatC</span>(pathogen_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Costs in Damages in $</span><span class="st">`</span>, <span class="at">big.mark =</span> <span class="st">','</span>, <span class="at">format =</span> <span class="st">'f'</span>)) </span>
+<span id="cb38-83"><a href="#cb38-83" aria-hidden="true" tabindex="-1"></a><span class="co"># i'm not sure where the extra numbers came from</span></span>
+<span id="cb38-84"><a href="#cb38-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-85"><a href="#cb38-85" aria-hidden="true" tabindex="-1"></a><span class="co"># add commas</span></span>
+<span id="cb38-86"><a href="#cb38-86" aria-hidden="true" tabindex="-1"></a>pathogen_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Number of Confirmed Cases</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">formatC</span>(pathogen_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Number of Confirmed Cases</span><span class="st">`</span>, <span class="at">format=</span><span class="st">"d"</span>, <span class="at">big.mark=</span><span class="st">","</span>))</span>
+<span id="cb38-87"><a href="#cb38-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-88"><a href="#cb38-88" aria-hidden="true" tabindex="-1"></a><span class="co"># sanity checkpoint</span></span>
+<span id="cb38-89"><a href="#cb38-89" aria-hidden="true" tabindex="-1"></a>pathogen_tidy</span>
+<span id="cb38-90"><a href="#cb38-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-91"><a href="#cb38-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-92"><a href="#cb38-92" aria-hidden="true" tabindex="-1"></a>::: panel-tabset <span class="sc">\#</span># Pathogen: Visualizing Data</span>
+<span id="cb38-93"><a href="#cb38-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-94"><a href="#cb38-94" aria-hidden="true" tabindex="-1"></a>Now that I tidied the dataset, I will use a couple of graphs to visualize the damages those pathogens did. I create the dataframe with <span class="in">`data.frame()`</span>, then use <span class="in">`ggplot`</span> commands to make my graphs. I added the <span class="in">`coord_flip()`</span> command for easier reading.</span>
+<span id="cb38-95"><a href="#cb38-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-98"><a href="#cb38-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-99"><a href="#cb38-99" aria-hidden="true" tabindex="-1"></a>ill <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb38-100"><a href="#cb38-100" aria-hidden="true" tabindex="-1"></a>  <span class="at">Pathogens =</span><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Campylobacter spp."</span>,<span class="st">"Clostridium perfringens"</span>,<span class="st">"Cryptosporidium spp."</span>,<span class="st">"Cyclospora cayetanensis"</span>,<span class="st">"Listeria monocytogenes"</span>, <span class="st">"Norovirus"</span>, <span class="st">"Salmonella"</span>, <span class="st">"Shigella"</span>, <span class="st">"Shiga toxin-producing E.Coli"</span>, <span class="st">"Non-Shiga Toxin-Producing E. coli"</span>, <span class="st">"Toxoplasma gondii"</span>, <span class="st">"Vibrio parahaemolyticus"</span>, <span class="st">"Vibrio vulnificus"</span>, <span class="st">"Other Vibrio non-cholera species"</span>, <span class="st">"Yersinia enterocolitica"</span>)),  </span>
+<span id="cb38-101"><a href="#cb38-101" aria-hidden="true" tabindex="-1"></a>  <span class="at">Cases =</span><span class="fu">c</span>(<span class="dv">845024</span>, <span class="dv">965958</span>, <span class="dv">57616</span>, <span class="dv">11407</span>, <span class="dv">1591</span>, <span class="dv">5461731</span>, <span class="dv">1027561</span>, <span class="dv">131254</span>, <span class="dv">63153</span>, <span class="dv">112752</span>, <span class="dv">86686</span>, <span class="dv">34664</span>, <span class="dv">96</span>, <span class="dv">17564</span>, <span class="dv">97656</span>)</span>
+<span id="cb38-102"><a href="#cb38-102" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb38-103"><a href="#cb38-103" aria-hidden="true" tabindex="-1"></a>ill</span>
+<span id="cb38-104"><a href="#cb38-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-105"><a href="#cb38-105" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>ill, </span>
+<span id="cb38-106"><a href="#cb38-106" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Pathogens, </span>
+<span id="cb38-107"><a href="#cb38-107" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> Cases,</span>
+<span id="cb38-108"><a href="#cb38-108" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill=</span>Cases)) <span class="sc">+</span> </span>
+<span id="cb38-109"><a href="#cb38-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span><span class="st">"lightgreen"</span>) <span class="sc">+</span></span>
+<span id="cb38-110"><a href="#cb38-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Cases), </span>
+<span id="cb38-111"><a href="#cb38-111" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb38-112"><a href="#cb38-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Pathogen Types"</span>, </span>
+<span id="cb38-113"><a href="#cb38-113" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of Cases"</span>, </span>
+<span id="cb38-114"><a href="#cb38-114" aria-hidden="true" tabindex="-1"></a>       <span class="at">title  =</span> <span class="st">"Pathogens by Number of Confirmed Cases"</span>) <span class="sc">+</span></span>
+<span id="cb38-115"><a href="#cb38-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
+<span id="cb38-116"><a href="#cb38-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span>
+<span id="cb38-117"><a href="#cb38-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-118"><a href="#cb38-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-121"><a href="#cb38-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-122"><a href="#cb38-122" aria-hidden="true" tabindex="-1"></a><span class="co"># create data frame</span></span>
+<span id="cb38-123"><a href="#cb38-123" aria-hidden="true" tabindex="-1"></a>damage <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb38-124"><a href="#cb38-124" aria-hidden="true" tabindex="-1"></a>  <span class="at">Pathogens =</span><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Campylobacter spp."</span>,<span class="st">"Clostridium perfringens"</span>,<span class="st">"Cryptosporidium spp."</span>,<span class="st">"Cyclospora cayetanensis"</span>,<span class="st">"Listeria monocytogenes"</span>, <span class="st">"Norovirus"</span>, <span class="st">"Salmonella"</span>, <span class="st">"Shigella"</span>, <span class="st">"Shiga toxin-producing E.Coli"</span>, <span class="st">"Non-Shiga Toxin-Producing E. coli"</span>, <span class="st">"Toxoplasma gondii"</span>, <span class="st">"Vibrio parahaemolyticus"</span>, <span class="st">"Vibrio vulnificus"</span>, <span class="st">"Other Vibrio non-cholera species"</span>, <span class="st">"Yersinia enterocolitica"</span>)),  </span>
+<span id="cb38-125"><a href="#cb38-125" aria-hidden="true" tabindex="-1"></a>  <span class="at">Damages =</span><span class="fu">c</span>(<span class="dv">2181485783</span>, <span class="dv">384277856</span>, <span class="dv">58394152</span>, <span class="dv">2571518</span>, <span class="dv">3189686110</span>, <span class="dv">2566984191</span>, <span class="dv">4142179161</span>, <span class="dv">159202402</span>, <span class="dv">311036907</span>, <span class="dv">31701852</span>, <span class="dv">3744008907</span>, <span class="dv">45735332</span>, <span class="dv">359481557</span>, <span class="dv">81749064</span>, <span class="dv">313297920</span>)</span>
+<span id="cb38-126"><a href="#cb38-126" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb38-127"><a href="#cb38-127" aria-hidden="true" tabindex="-1"></a>damage</span>
+<span id="cb38-128"><a href="#cb38-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-129"><a href="#cb38-129" aria-hidden="true" tabindex="-1"></a><span class="co"># create graph</span></span>
+<span id="cb38-130"><a href="#cb38-130" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(damage, <span class="fu">aes</span>(<span class="at">x=</span>Pathogens, <span class="at">y=</span>Damages)) <span class="sc">+</span></span>
+<span id="cb38-131"><a href="#cb38-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"darkblue"</span>)<span class="sc">+</span></span>
+<span id="cb38-132"><a href="#cb38-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
+<span id="cb38-133"><a href="#cb38-133" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Types of Pathogen"</span>) <span class="sc">+</span></span>
+<span id="cb38-134"><a href="#cb38-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Costs in Damages"</span>) <span class="sc">+</span></span>
+<span id="cb38-135"><a href="#cb38-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Pathogens by Costs in Damages"</span>) <span class="sc">+</span></span>
+<span id="cb38-136"><a href="#cb38-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span>
+<span id="cb38-137"><a href="#cb38-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-138"><a href="#cb38-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-139"><a href="#cb38-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-140"><a href="#cb38-140" aria-hidden="true" tabindex="-1"></a>Here's a scatterplot of the pathogens, but this time, there are labels I added with <span class="in">`geom_label()`</span> and adjusted the font settings with it. In addition, I customized the graph with various sources, such as <span class="in">`ggtile()`</span> and <span class="in">`comma_format()`</span>.</span>
+<span id="cb38-141"><a href="#cb38-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-144"><a href="#cb38-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-145"><a href="#cb38-145" aria-hidden="true" tabindex="-1"></a><span class="co"># create data frame</span></span>
+<span id="cb38-146"><a href="#cb38-146" aria-hidden="true" tabindex="-1"></a>pathogens <span class="ot">&lt;-</span> pathogen_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb38-147"><a href="#cb38-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">costs =</span> <span class="fu">parse_number</span>(<span class="st">`</span><span class="at">Costs in Damages in $</span><span class="st">`</span>),</span>
+<span id="cb38-148"><a href="#cb38-148" aria-hidden="true" tabindex="-1"></a>         <span class="at">cases =</span> <span class="fu">parse_number</span>(<span class="st">`</span><span class="at">Number of Confirmed Cases</span><span class="st">`</span>))</span>
+<span id="cb38-149"><a href="#cb38-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-150"><a href="#cb38-150" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pathogens, <span class="fu">aes</span>(cases, costs, <span class="at">label =</span> <span class="st">`</span><span class="at">Type of Pathogen</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb38-151"><a href="#cb38-151" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
+<span id="cb38-152"><a href="#cb38-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
+<span id="cb38-153"><a href="#cb38-153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
+<span id="cb38-154"><a href="#cb38-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Costs in Damages ($)"</span>) <span class="sc">+</span></span>
+<span id="cb38-155"><a href="#cb38-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Number of Confirmed Cases"</span>) <span class="sc">+</span></span>
+<span id="cb38-156"><a href="#cb38-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Top 15 Pathogens by Cases and Costs in Damages"</span>) </span>
+<span id="cb38-157"><a href="#cb38-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-158"><a href="#cb38-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-159"><a href="#cb38-159" aria-hidden="true" tabindex="-1"></a>Here is a close up using <span class="in">`facet_zoom()`</span> since there are several overlaps in the graph.</span>
+<span id="cb38-160"><a href="#cb38-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-163"><a href="#cb38-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-164"><a href="#cb38-164" aria-hidden="true" tabindex="-1"></a><span class="co"># zoom in</span></span>
+<span id="cb38-165"><a href="#cb38-165" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)</span>
+<span id="cb38-166"><a href="#cb38-166" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pathogens, <span class="fu">aes</span>(cases, costs, <span class="at">label =</span> <span class="st">`</span><span class="at">Type of Pathogen</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb38-167"><a href="#cb38-167" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
+<span id="cb38-168"><a href="#cb38-168" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
+<span id="cb38-169"><a href="#cb38-169" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
+<span id="cb38-170"><a href="#cb38-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_zoom</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">5.0e+09</span>))</span>
+<span id="cb38-171"><a href="#cb38-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-172"><a href="#cb38-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-173"><a href="#cb38-173" aria-hidden="true" tabindex="-1"></a>From face value, we can see how some pathogens are either deadlier or costlier than other pathogens. For example, salmonella cost the most with over \$4 billion in damages, despite having fewer confirmed cases than Norovirus with a little bit over 1 million confirmed cases compared to over 5 million of confirmed Norovirus cases.</span>
+<span id="cb38-174"><a href="#cb38-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-175"><a href="#cb38-175" aria-hidden="true" tabindex="-1"></a>However, the average person is neither a microbiologist nor an epidemiologist, so we can't tell which pathogen is deadlier, why some are costlier than others, or if there's a correlation between costs in damages and number of confirmed cases from this graph alone. If there were more information on the original dataset, I could improve my visualizations in several different ways, such as measuring the severity of each pathogen (and maybe add photos of each pathogen in the graphs) as well as infection rates, diseases caused by them, and where and how the diseases spread.</span>
+<span id="cb38-176"><a href="#cb38-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-177"><a href="#cb38-177" aria-hidden="true" tabindex="-1"></a>::: panel-tabset <span class="sc">\#</span># Pathogen: Statistical Analysis</span>
+<span id="cb38-178"><a href="#cb38-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-179"><a href="#cb38-179" aria-hidden="true" tabindex="-1"></a>Going back to middle school math:</span>
+<span id="cb38-180"><a href="#cb38-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-183"><a href="#cb38-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-184"><a href="#cb38-184" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical Analysis for Cases</span></span>
+<span id="cb38-185"><a href="#cb38-185" aria-hidden="true" tabindex="-1"></a>pathogen <span class="sc">%&gt;%</span></span>
+<span id="cb38-186"><a href="#cb38-186" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean.cases =</span> <span class="fu">mean</span>(Cases),</span>
+<span id="cb38-187"><a href="#cb38-187" aria-hidden="true" tabindex="-1"></a>            <span class="at">Median.cases =</span> <span class="fu">median</span>(Cases),</span>
+<span id="cb38-188"><a href="#cb38-188" aria-hidden="true" tabindex="-1"></a>            <span class="at">max.cases =</span> <span class="fu">max</span>(Cases),</span>
+<span id="cb38-189"><a href="#cb38-189" aria-hidden="true" tabindex="-1"></a>            <span class="at">min.cases =</span> <span class="fu">min</span>(Cases),</span>
+<span id="cb38-190"><a href="#cb38-190" aria-hidden="true" tabindex="-1"></a>            <span class="at">sum.cases =</span> <span class="fu">sum</span>(Cases))</span>
+<span id="cb38-191"><a href="#cb38-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-192"><a href="#cb38-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-193"><a href="#cb38-193" aria-hidden="true" tabindex="-1"></a>The average amount of confirmed cases are 594,314 cases, with the norovirus having the most with over 5,000,000 while Vibrio vulnificus with the least amount with 96 cases. Collectively, these pathogens infected a total of 8,914,713 people.</span>
+<span id="cb38-194"><a href="#cb38-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-195"><a href="#cb38-195" aria-hidden="true" tabindex="-1"></a><span class="al">![Vibrio vulnificus](Vibrio_vulnificus_01.png)</span></span>
+<span id="cb38-196"><a href="#cb38-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-197"><a href="#cb38-197" aria-hidden="true" tabindex="-1"></a><span class="al">![Norovirus](Norwalk.jpg)</span></span>
+<span id="cb38-198"><a href="#cb38-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-201"><a href="#cb38-201" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-202"><a href="#cb38-202" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical Analysis for Cost in damages</span></span>
+<span id="cb38-203"><a href="#cb38-203" aria-hidden="true" tabindex="-1"></a>pathogen <span class="sc">%&gt;%</span></span>
+<span id="cb38-204"><a href="#cb38-204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean.cost =</span> <span class="fu">mean</span>(Cost),</span>
+<span id="cb38-205"><a href="#cb38-205" aria-hidden="true" tabindex="-1"></a>            <span class="at">median.cost =</span> <span class="fu">median</span>(Cost),</span>
+<span id="cb38-206"><a href="#cb38-206" aria-hidden="true" tabindex="-1"></a>            <span class="at">max.cost =</span> <span class="fu">max</span>(Cost),</span>
+<span id="cb38-207"><a href="#cb38-207" aria-hidden="true" tabindex="-1"></a>            <span class="at">Min.cost =</span> <span class="fu">min</span>(Cost),</span>
+<span id="cb38-208"><a href="#cb38-208" aria-hidden="true" tabindex="-1"></a>            <span class="at">sum.cost =</span> <span class="fu">sum</span>(Cost))</span>
+<span id="cb38-209"><a href="#cb38-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-210"><a href="#cb38-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-211"><a href="#cb38-211" aria-hidden="true" tabindex="-1"></a>As for the cost, the average cost in damages is <span class="in">`$1,171,452,847`</span>, with Salmonella costing the most with <span class="in">`$4,142,179,161`</span>, while Cyclospora cayetanensis cost <span class="in">`$2,571,518`</span> in damages. Collectively, these pathogens cost <span class="in">`$17,571,792,712`</span> in damages.</span>
+<span id="cb38-212"><a href="#cb38-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-213"><a href="#cb38-213" aria-hidden="true" tabindex="-1"></a><span class="al">![Salmonella](salmonella_salmonellosis.jpeg)</span> Salmonella</span>
+<span id="cb38-214"><a href="#cb38-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-215"><a href="#cb38-215" aria-hidden="true" tabindex="-1"></a><span class="al">![Cyclospora cayetanensis](Cyclospora_cayetanensis_stained.jpeg)</span> Cyclospora cayetanensis</span>
+<span id="cb38-216"><a href="#cb38-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-217"><a href="#cb38-217" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Debt in Trillions</span></span>
+<span id="cb38-218"><a href="#cb38-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-219"><a href="#cb38-219" aria-hidden="true" tabindex="-1"></a>::: panel-tabset <span class="sc">\#</span># Debt in Trillions: Read Data</span>
+<span id="cb38-220"><a href="#cb38-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-223"><a href="#cb38-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-224"><a href="#cb38-224" aria-hidden="true" tabindex="-1"></a>debts <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"/Users/kristinabijaoude/Documents/GitHub/Github Help/601_Fall_2022/posts/_data/debt_in_trillions.xlsx"</span>)</span>
+<span id="cb38-225"><a href="#cb38-225" aria-hidden="true" tabindex="-1"></a>debts</span>
+<span id="cb38-226"><a href="#cb38-226" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-227"><a href="#cb38-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-228"><a href="#cb38-228" aria-hidden="true" tabindex="-1"></a>Now we are going to look at another dataset about debt held by Americans in trillions of dollars from 2003 to 2021- the following types of debt listed are Mortgages, Home Equity Revolving loans, Auto loans, Credit Card debt, Student loans, and other loans.</span>
+<span id="cb38-229"><a href="#cb38-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-230"><a href="#cb38-230" aria-hidden="true" tabindex="-1"></a>::: panel-tabset <span class="sc">\#</span># Debt in Trillions: Tidy and Mutate Data</span>
+<span id="cb38-231"><a href="#cb38-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-234"><a href="#cb38-234" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-235"><a href="#cb38-235" aria-hidden="true" tabindex="-1"></a>debt_tidy <span class="ot">&lt;-</span> debts <span class="sc">%&gt;%</span></span>
+<span id="cb38-236"><a href="#cb38-236" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">parse_date_time</span>(<span class="st">`</span><span class="at">Year and Quarter</span><span class="st">`</span>, <span class="at">orders=</span><span class="st">"yq"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb38-237"><a href="#cb38-237" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">`</span><span class="at">Year and Quarter</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb38-238"><a href="#cb38-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(<span class="st">`</span><span class="at">date</span><span class="st">`</span>, <span class="at">.before =</span> <span class="st">`</span><span class="at">Mortgage</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-239"><a href="#cb38-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Date"</span> <span class="ot">=</span> <span class="st">"date"</span>)</span>
+<span id="cb38-240"><a href="#cb38-240" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb38-241"><a href="#cb38-241" aria-hidden="true" tabindex="-1"></a>debt_tidy</span>
+<span id="cb38-242"><a href="#cb38-242" aria-hidden="true" tabindex="-1"></a><span class="co"># i tried to separate the year and quarter with str_extract(), but i wasn't having any luck with converting the century, so i had to look at the solutions in class for the most effective code</span></span>
+<span id="cb38-243"><a href="#cb38-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-244"><a href="#cb38-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-245"><a href="#cb38-245" aria-hidden="true" tabindex="-1"></a>Admittedly, I had trouble with separating the year and quarter. Going forward, whenever I come across a problem like this, the go-to codes are <span class="in">`mutate()`</span> and <span class="in">`parse_date_time()`</span>. With those codes, we get 4 different dates in the same year, such as 2003-01-01, 2003-04-01, 2003-07-01 and so on. These are the fiscal quarters for each year, normally used in government reports on the country's economy and other monetary policies. In addition, I removed the unnecessary data and relocated the year back into the first variable with <span class="in">`relocate()`</span>.</span>
+<span id="cb38-246"><a href="#cb38-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-247"><a href="#cb38-247" aria-hidden="true" tabindex="-1"></a>For clarification, the numberes represent the amount of debt owed in trillions of dollars, with the vast majority of that debt owed from mortgages.</span>
+<span id="cb38-248"><a href="#cb38-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-249"><a href="#cb38-249" aria-hidden="true" tabindex="-1"></a>::: panel-tabset <span class="sc">\#</span># Debt in Trillion: Visualizing Data</span>
+<span id="cb38-250"><a href="#cb38-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-253"><a href="#cb38-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-254"><a href="#cb38-254" aria-hidden="true" tabindex="-1"></a><span class="co"># create data</span></span>
+<span id="cb38-255"><a href="#cb38-255" aria-hidden="true" tabindex="-1"></a>dates <span class="ot">&lt;-</span> <span class="fu">ymd</span>(debt_tidy<span class="sc">$</span>Date)</span>
+<span id="cb38-256"><a href="#cb38-256" aria-hidden="true" tabindex="-1"></a>mortgage <span class="ot">&lt;-</span> debt_tidy<span class="sc">$</span>Mortgage</span>
+<span id="cb38-257"><a href="#cb38-257" aria-hidden="true" tabindex="-1"></a>HE_Rev <span class="ot">&lt;-</span> debt_tidy<span class="sc">$</span><span class="st">`</span><span class="at">HE Revolving</span><span class="st">`</span></span>
+<span id="cb38-258"><a href="#cb38-258" aria-hidden="true" tabindex="-1"></a>auto <span class="ot">&lt;-</span> debt_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Auto Loan</span><span class="st">`</span></span>
+<span id="cb38-259"><a href="#cb38-259" aria-hidden="true" tabindex="-1"></a>CC <span class="ot">&lt;-</span> debt_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Credit Card</span><span class="st">`</span></span>
+<span id="cb38-260"><a href="#cb38-260" aria-hidden="true" tabindex="-1"></a>student <span class="ot">&lt;-</span> debt_tidy<span class="sc">$</span><span class="st">`</span><span class="at">Student Loan</span><span class="st">`</span></span>
+<span id="cb38-261"><a href="#cb38-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-262"><a href="#cb38-262" aria-hidden="true" tabindex="-1"></a><span class="co"># create graph</span></span>
+<span id="cb38-263"><a href="#cb38-263" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> debt_tidy, <span class="fu">aes</span>(<span class="at">x=</span> <span class="st">`</span><span class="at">dates</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb38-264"><a href="#cb38-264" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> mortgage, <span class="at">color =</span> <span class="st">"Mortgage"</span>)) <span class="sc">+</span></span>
+<span id="cb38-265"><a href="#cb38-265" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> HE_Rev,  <span class="at">color=</span><span class="st">"HE Revolving"</span>)) <span class="sc">+</span></span>
+<span id="cb38-266"><a href="#cb38-266" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> auto, <span class="at">color=</span><span class="st">"Auto Loans"</span>)) <span class="sc">+</span></span>
+<span id="cb38-267"><a href="#cb38-267" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span> CC, <span class="at">color =</span><span class="st">"Credit Card"</span>))<span class="sc">+</span></span>
+<span id="cb38-268"><a href="#cb38-268" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> student, <span class="at">color =</span> <span class="st">"Student Loans"</span>))<span class="sc">+</span></span>
+<span id="cb38-269"><a href="#cb38-269" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> other,  <span class="at">color =</span> <span class="st">"Other"</span>))<span class="sc">+</span></span>
+<span id="cb38-270"><a href="#cb38-270" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb38-271"><a href="#cb38-271" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Debt in Trillions of Dollars"</span>)<span class="sc">+</span></span>
+<span id="cb38-272"><a href="#cb38-272" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
+<span id="cb38-273"><a href="#cb38-273" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Debt Held by Americans from 2003 to 2021"</span>) </span>
+<span id="cb38-274"><a href="#cb38-274" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-275"><a href="#cb38-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-278"><a href="#cb38-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-279"><a href="#cb38-279" aria-hidden="true" tabindex="-1"></a><span class="co"># pivot longer with pivot_longer</span></span>
+<span id="cb38-280"><a href="#cb38-280" aria-hidden="true" tabindex="-1"></a>debt_pivot <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(debt_tidy, <span class="at">cols =</span> Mortgage<span class="sc">:</span>Other, <span class="at">names_to =</span> <span class="st">"type"</span>, <span class="at">values_to =</span> <span class="st">"debt"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-281"><a href="#cb38-281" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Total)) <span class="sc">%&gt;%</span></span>
+<span id="cb38-282"><a href="#cb38-282" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">"Type of Loan"</span> <span class="ot">=</span> <span class="fu">as.factor</span>(type)) <span class="sc">%&gt;%</span></span>
+<span id="cb38-283"><a href="#cb38-283" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(type))</span>
+<span id="cb38-284"><a href="#cb38-284" aria-hidden="true" tabindex="-1"></a>debt_pivot</span>
+<span id="cb38-285"><a href="#cb38-285" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-286"><a href="#cb38-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-287"><a href="#cb38-287" aria-hidden="true" tabindex="-1"></a>I pivoted this data from wide to long with <span class="in">`pivot_longer()`</span> because I want to facet, or split the chart into smaller components, with <span class="in">`facet_wrap()`</span>.</span>
+<span id="cb38-288"><a href="#cb38-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-291"><a href="#cb38-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-292"><a href="#cb38-292" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(debt_pivot, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Date</span><span class="st">`</span>, <span class="st">`</span><span class="at">debt</span><span class="st">`</span>)) <span class="sc">+</span>                                    </span>
+<span id="cb38-293"><a href="#cb38-293" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb38-294"><a href="#cb38-294" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(. <span class="sc">~</span> <span class="st">`</span><span class="at">Type of Loan</span><span class="st">`</span>) <span class="sc">+</span></span>
+<span id="cb38-295"><a href="#cb38-295" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Debt Held in Trillions of Dollars"</span>) <span class="sc">+</span></span>
+<span id="cb38-296"><a href="#cb38-296" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Date and Quarter"</span>) <span class="sc">+</span></span>
+<span id="cb38-297"><a href="#cb38-297" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Debt Held by Americans from 2003 to 2021"</span>)</span>
+<span id="cb38-298"><a href="#cb38-298" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-299"><a href="#cb38-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-300"><a href="#cb38-300" aria-hidden="true" tabindex="-1"></a>As mentioned beforehand, the vast majority of debt held is mortgages, and that seems to be rising in a faster race in comparison to other types of debts.</span>
+<span id="cb38-301"><a href="#cb38-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-302"><a href="#cb38-302" aria-hidden="true" tabindex="-1"></a>As much as this dataset has more information than the pathogen, there are some questions left unanswered:</span>
+<span id="cb38-303"><a href="#cb38-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-304"><a href="#cb38-304" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What is the average American household income or individual American income?</span>
+<span id="cb38-305"><a href="#cb38-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-306"><a href="#cb38-306" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>How did the recessions of 2008 and 2020 affect debt, or those who have debt?</span>
+<span id="cb38-307"><a href="#cb38-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-308"><a href="#cb38-308" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>How does debt affect unemployment, inflation, GDP, purchasing power, and other metrics used by economics?</span>
+<span id="cb38-309"><a href="#cb38-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-310"><a href="#cb38-310" aria-hidden="true" tabindex="-1"></a>Aforementioned in the pathogen dataset, when there's more information, I could improve my visualizations by computing relationships between various economic factors (for example, plot correlation between GDP and debt) with various graphs, especially scatterplot and trends.</span>
+<span id="cb38-311"><a href="#cb38-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-312"><a href="#cb38-312" aria-hidden="true" tabindex="-1"></a>::: panel-tabset <span class="sc">\#</span># Debt in Trillion: Statistical Analysis</span>
+<span id="cb38-313"><a href="#cb38-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-314"><a href="#cb38-314" aria-hidden="true" tabindex="-1"></a>Before I explain further, let me explain the term standard deviation. We all know what the mean is, or the average, but the standard deviation tells us how far or near the measurements of a group are from the average. In other words, the lower the standard deviation is, the closer the measurements are to the average, while the higher, the more spread out the measurements are.</span>
+<span id="cb38-315"><a href="#cb38-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-316"><a href="#cb38-316" aria-hidden="true" tabindex="-1"></a>When I measure the mean and standard deviation here, the mortgage is clearly the outlier, as the majority of the debt held is from mortgages. The standard deviation is 1.18 sd, which means the measurements for mortgages have more outliers than other debt type. Visually, this is reflected in the above graphs I computed.</span>
+<span id="cb38-317"><a href="#cb38-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-318"><a href="#cb38-318" aria-hidden="true" tabindex="-1"></a>Looking at the sum column, Americans collected up to 871 trillion dollars in debt from 2003 to 2021, with the vast majority of it from mortgages.</span>
+<span id="cb38-319"><a href="#cb38-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-322"><a href="#cb38-322" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-323"><a href="#cb38-323" aria-hidden="true" tabindex="-1"></a>ds_debt<span class="ot">&lt;-</span>debt_pivot<span class="sc">%&gt;%</span></span>
+<span id="cb38-324"><a href="#cb38-324" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Type of Loan</span><span class="st">`</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb38-325"><a href="#cb38-325" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean=</span><span class="fu">mean</span>(debt),</span>
+<span id="cb38-326"><a href="#cb38-326" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd=</span><span class="fu">sd</span>(debt),</span>
+<span id="cb38-327"><a href="#cb38-327" aria-hidden="true" tabindex="-1"></a>            <span class="at">sum=</span><span class="fu">sum</span>(debt))</span>
+<span id="cb38-328"><a href="#cb38-328" aria-hidden="true" tabindex="-1"></a>ds_debt</span>
+<span id="cb38-329"><a href="#cb38-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-330"><a href="#cb38-330" aria-hidden="true" tabindex="-1"></a><span class="co"># how much debt did Americans collect in total</span></span>
+<span id="cb38-331"><a href="#cb38-331" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(ds_debt<span class="sc">$</span>sum)</span>
+<span id="cb38-332"><a href="#cb38-332" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb38-333"><a href="#cb38-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-336"><a href="#cb38-336" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb38-337"><a href="#cb38-337" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">dfSummary</span>(debt_tidy,</span>
+<span id="cb38-338"><a href="#cb38-338" aria-hidden="true" tabindex="-1"></a>                        <span class="at">varnumbers =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb38-339"><a href="#cb38-339" aria-hidden="true" tabindex="-1"></a>                        <span class="at">plain.ascii  =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb38-340"><a href="#cb38-340" aria-hidden="true" tabindex="-1"></a>                        <span class="at">style        =</span> <span class="st">"grid"</span>, </span>
+<span id="cb38-341"><a href="#cb38-341" aria-hidden="true" tabindex="-1"></a>                        <span class="at">graph.magnif =</span> <span class="fl">0.70</span>, </span>
+<span id="cb38-342"><a href="#cb38-342" aria-hidden="true" tabindex="-1"></a>                        <span class="at">valid.col    =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb38-343"><a href="#cb38-343" aria-hidden="true" tabindex="-1"></a>      <span class="at">method =</span> <span class="st">'render'</span>,</span>
+<span id="cb38-344"><a href="#cb38-344" aria-hidden="true" tabindex="-1"></a>      <span class="at">table.classes =</span> <span class="st">'table-condensed'</span>)</span>
+<span id="cb38-345"><a href="#cb38-345" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>
