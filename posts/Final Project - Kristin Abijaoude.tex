@@ -1,0 +1,649 @@
+\documentclass{article}\usepackage[]{graphicx}\usepackage[]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[sc]{mathpazo}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{
+ pdfstartview={XYZ null null 1}}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
+\makeatother
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+
+
+
+
+
+
+The results below are generated from an R script.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+---
+title: \hlstr{"Citizenship Laws by Country"}
+description: \hlstr{"MY FINAL PROJECT"}
+author: \hlstr{"KRISTIN ABIJAOUDE"}
+date: \hlstr{"`r \hlkwd{Sys.Date}()`"}
+output: distill::distill_article
+---
+
+```\{r\}
+\hlkwd{library}(readr)
+\hlkwd{library}(dplyr)
+\hlkwd{library}(tidyverse)
+\hlkwd{library}(ggplot2)
+\hlkwd{library}(ggraph)
+\hlkwd{library}(igraph)
+\hlkwd{library}(collapsibleTree)
+\hlkwd{library}(treemap)
+\hlkwd{library}(knitr)
+
+knitr::opts_chunk$\hlkwd{set}(echo = TRUE)
+```
+
+\hlcom{## Asking the Research Question}
+
+Eight billion humans. About 200 countries. Many laws with a million asterisks next to them.
+
+Each country handles citizenship and immigration differently. Some countries permit dual citizenship, while others restrict how many nationalities their citizens can have. Some countries give unconditional citizenship to any child born on their soil, while others do if their parents are citizens. Finally, there are countries that only restrict the path to citizenship to certain races, ethnic, or religious groups.
+
+A citizenship is a contract between the citizen and the country. The citizen pledges allegiance to the \hlkwd{country} (or countries); and in turn, the \hlkwd{country} (or countries) provide rights and protections for the citizen. For example, I am a dual American-Lebanese citizen; I was born in America, which provides unconditional birthright citizenship, and my parents passed the Lebanese nationality down to my sisters and me. The allegiance between the citizen and the country can break, just like a contract. In several cases, the citizenship can be revoked, from voluntary renunciation of a citizenship or involuntary renunciation due to disloyalty, criminal offenses, or even having dual citizenship. Note the word “several” since the situation like this is on a case-by-case analysis. Out of curiosity and interest, the purpose of this report is to analyze the bureaucratic nature of citizenship and immigration.
+
+Question: Which countries have more lax citizenship laws, and which countries have more restrictive citizenship laws?
+
+\hlcom{## Open Dataset}
+
+The dataset, which is called GLOBALCIT Citizenship Law Dataset, originates from Italy-based European University Institute, specifically at the Cadmus EUI Research Repository. Maarten Peter Link et. al., from the Robert Schuman Centre for Advanced Studies collected data on different ways citizenship can be acquired or loss in each country as of 2020. 
+
+
+```\{r\}
+\hlcom{# citizenship laws by country}
+citizenship <- \hlkwd{read.csv}(\hlstr{"_data/GLOBALCIT Citizenship Law v1 EUI ResData/Data/data_v1.0_country-year.csv"})
+
+citizenship
+```
+
+```\{r\}
+\hlkwd{dim}(citizenship)
+```
+
+There are three datasets; one dataset about citizenship acquisition, another dataset about loss of citizenship; and a mega dataset containing both laws. Trying to merge the two former datasets would be like reinventing the wheel, so I opted to analyze the mega dataset, which consisted of 104 columns and 190 rows. Each row lists the country in the order of their country code in the Italian language. 
+
+```\{r\}
+\hlkwd{colnames}(citizenship)
+```
+
+To make this report easier for the reader, as well as myself, I will be broadly focusing on whether the citizenship laws are enforced, regardless of the exceptions in place. For example, if a country allows parents to pass down citizenship to their children, I will classify that as “yes”, even if there’s an age limit to receiving citizenship, or if a country allows dual citizenship with certain countries, I will classify that as “Yes” as in they allow dual citizenship. However, I will keep the original dataset to manipulate more variables later.
+
+\hlcom{## Tidy and Manipulate Dataset}
+
+This is an extremely messy dataset, so with `\hlkwd{mutate}()` and `\hlkwd{case_when}()`, I reorganize and recode the variables according to the code guide provided in the ZIP file. The A stands for \hlstr{"acquisition"}, as in \hlstr{"how citizenship is acquired"}, and L stands for \hlstr{"loss"} as in \hlstr{"how citizenship is loss"}. The word bin, short for binary, means if the country has the citizenship law, and cat, short for category, means what the exceptions are in the citizenship law, but I will solely focus on the binary data for now.
+
+First, let's recode the acquisition variables.
+
+```\{r\}
+\hlcom{# recode laws on acquisition of citizenship}
+citizen_tidy <- citizenship %>%
+  \hlkwd{mutate}(\hlstr{"acq_descborn"} = \hlkwd{case_when}(A01a_bin == 1 ~ \hlstr{"Yes"},   # Person born to a citizen of a \hlkwd{country} (birth in that country)
+                                     A01a_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"acq_descabroad"} = \hlkwd{case_when}(A01b_bin == 1 ~ \hlstr{"Yes"}, # Person born to a citizen of a \hlkwd{country} (birth abroad)
+                                       A01b_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"acq_birthright"} = \hlkwd{case_when}(A02a_bin == 1 ~ \hlstr{"Yes"}, # Person born in a country regardless of parent's nationality
+                                      A02a_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"acq_parents"}  = \hlkwd{case_when} (A02b_bin == 1 ~ \hlstr{"Yes"}, # Person born to a parent who was also born in same country
+                                     A02b_bin == 0 ~ \hlstr{"No"}), 
+         \hlstr{"acq_found"} = \hlkwd{case_when}(A03a_bin == 1 ~ \hlstr{"Yes"}, # Child found in a country of unknown parentage
+                                 A03a_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"acq_parent_est"} = \hlkwd{case_when}(A04_bin == 1 ~ \hlstr{"Yes"}, # Establishment of parentage
+                                      A04_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"acq_residency"} = \hlkwd{case_when}(A06_bin == 1 ~ \hlstr{"Yes"}, # Residence-based acquisition
+                                     A06_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"acq_renounce"} = \hlkwd{case_when}(A06b_bin == 0 ~ \hlstr{"No"}, # Person must renounce old citizenship first
+                                    A06b_bin == 1 ~ \hlstr{"Yes"},
+                                    TRUE ~ \hlstr{"No"}),
+         \hlstr{"acq_lang"} = \hlkwd{case_when}(A06c_bin == 0 ~ \hlstr{"No"}, # Person must know the language basics
+                                A06c_bin == 1 ~ \hlstr{"Yes"},
+                                TRUE ~ \hlstr{"No"}),
+         \hlstr{"acq_good_chara"} = \hlkwd{case_when}(A06e_bin == 1 ~ \hlstr{"Yes"}, # Person must be of good character
+                                      A06e_bin == 0 ~ \hlstr{"No"},
+                                      TRUE ~ \hlstr{"No"}),
+         \hlstr{"acq_econ"} = \hlkwd{case_when}(A06f_bin == 0 ~ \hlstr{"No"}, # Person must have sufficient income
+                                A06f_bin == 1 ~ \hlstr{"Yes"},
+                                TRUE ~ \hlstr{"No"}),
+         \hlstr{"acq_childhood"} = \hlkwd{case_when}(A07_bin == 0 ~ \hlstr{"No"}, # Person with a certain period of residence or schooling as a minor
+                                     A07_bin == 1 ~ \hlstr{"Yes"}),
+         \hlstr{"acq_marriage"} = \hlkwd{case_when}(A08_bin == 0 ~ \hlstr{"No"}, # Person marries a citizen
+                                    A08_bin == 1 ~ \hlstr{"Yes"}),
+         \hlstr{"acq_transfer"} = \hlkwd{case_when}(A09_bin == 0 ~ \hlstr{"No"}, # Transfer to a child from a parent
+                                    A09_bin == 1 ~ \hlstr{"Yes"}),
+         \hlstr{"acq_adopt"} = \hlkwd{case_when}(A10_bin == 0 ~ \hlstr{"No"}, # Person who is adopted by a citizen
+                                 A10_bin == 1 ~ \hlstr{"Yes"}),
+         \hlstr{"acq_relative"} = \hlkwd{case_when}(A11_bin == 1 ~ \hlstr{"Yes"}, # Person who is another relative of a citizen
+                                    A11_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"acq_rel_former"} = \hlkwd{case_when}(A12a_bin == 1 ~ \hlstr{"Yes"}, # Person who is the relative of a former citizen
+                                      A12a_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"acq_rel_dead"} = \hlkwd{case_when}(A12b_bin == 1 ~ \hlstr{"Yes"}, # Person who is the relative of a deceased citizen
+                                    A12b_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"acq_spouse"} = \hlkwd{case_when}(A13_bin == 1 ~ \hlstr{"Yes"}, # Person who is the spouse or registered partner of citizen
+                                  A13_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"acq_dep_citizen"} = \hlkwd{case_when}(A14_bin == 0 ~ \hlstr{"No"}, # Person who is the dependent of the citizen
+                                       A14_bin == 1 ~ \hlstr{"Yes"}),
+         \hlstr{"acq_regain"} = \hlkwd{case_when}(A16_bin == 1 ~ \hlstr{"Yes"}, # Person who was once a former citizen and regains citizenship
+                                  A16_bin == 0 ~ \hlstr{"No"}), 
+         \hlstr{"acq_specific"} = \hlkwd{case_when}(A18_bin == 0 ~ \hlstr{"No"}, # Person who possesses the citizenship of a specific country
+                                    A18_bin == 1 ~ \hlstr{"Yes"}),
+         \hlstr{"acq_cxn"} = \hlkwd{case_when}(A19_bin == 0 ~ \hlstr{"No"}, # Person who has a cultural affinity
+                               A19_bin == 1 ~ \hlstr{"Yes"}),
+         \hlstr{"acq_presume"} = \hlkwd{case_when}(A20_bin == 0 ~ \hlstr{"No"}, # Person who is a presumed citizen acted in good faith
+                                   A20_bin == 1 ~ \hlstr{"Yes"}),
+         \hlstr{"acq_longterm"} = \hlkwd{case_when}(A21_bin == 0 ~ \hlstr{"No"}, # Person who has resided in a country for a very long time
+                                    A21_bin == 1 ~ \hlstr{"Yes"}),
+         \hlstr{"acq_refugees"} = \hlkwd{case_when}(A22_bin == 0 ~ \hlstr{"No"}, # Person who is a recognised refugee
+                                    A22_bin == 1 ~ \hlstr{"Yes"}),
+         \hlstr{"acq_stateless"} = \hlkwd{case_when}(A23_bin == 0 ~ \hlstr{"No"}, # Person who is stateless or of undetermined citizenship
+                                     A23_bin == 1 ~ \hlstr{"Yes"}),
+         \hlstr{"acq_exceptional"} = \hlkwd{case_when}(A24_bin == 1 ~ \hlstr{"Yes"}, # Person who has special achievements
+                                       A24_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"acq_service"} = \hlkwd{case_when}(A25_bin == 1 ~ \hlstr{"Yes"}, # Person who is in the public service
+                                   A25_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"acq_invest"} = \hlkwd{case_when}(A26_bin == 0 ~ \hlstr{"No"}, # Person who invests in the country
+                                  A26_bin == 1 ~ \hlstr{"Yes"}))
+
+\hlcom{# remove unnecessary columns }
+citizen_tidy <- citizen_tidy[,-5:-73]
+
+\hlcom{# sanity check point}
+citizen_tidy
+```
+Next, time to recode laws dealing with loss of citizenship. 
+
+```\{r\}
+\hlcom{# recode laws on loss of citizenship}
+citizen_tidy <- citizen_tidy %>%
+  \hlkwd{mutate}(\hlstr{"loss_volunteer"} = \hlkwd{case_when}(L01_bin == 1 ~ \hlstr{"Yes"}, # Person who voluntarily renounces the citizenship of his/her country
+                                      L01_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_abroad"} = \hlkwd{case_when}(L02_bin == 1 ~ \hlstr{"Yes"}, # Person who resides outside the country of which he/she is a citizen
+                                   L02_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_foreignarmy"} = \hlkwd{case_when}(L03_bin == 1 ~ \hlstr{"Yes"}, # Person who renders military service to a foreign country
+                                        L03_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_foreignserv"}  = \hlkwd{case_when} (L04_bin == 1 ~ \hlstr{"Yes"}, # Person who renders other services to a foreign country
+                                          L04_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_newcitizen"} = \hlkwd{case_when}(L05_bin == 1 ~ \hlstr{"Yes"}, # Person who acquires a foreign citizenship
+                                       L05_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_mustchoose"} = \hlkwd{case_when}(L06_bin == 1 ~ \hlstr{"Yes"}, # Non-renunciation of foreign \hlkwd{citizenship} (acquisition by birth)
+                                       L06_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_disloyal"} = \hlkwd{case_when}(L07_bin == 1 ~ \hlstr{"Yes"}, # Loss of citizenship due to disloyalty or treason
+                                     L07_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_crime"} = \hlkwd{case_when}(L08_bin == 1 ~ \hlstr{"Yes"}, # Loss of citizenship due to other criminal offenses
+                                  L08_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_fraud"} = \hlkwd{case_when}(L09_bin == 1 ~ \hlstr{"Yes"}, # Person who has acquired citizenship by fraud
+                                  L09_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_birth_acq"} = \hlkwd{case_when}(L10_bin == 1 ~ \hlstr{"Yes"}, # Person who retains a foreign citizenship other than birth
+                                      L10_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_byparent"} = \hlkwd{case_when}(L11_bin == 1 ~ \hlstr{"Yes"}, # Person whose parent loses citizenship of a country
+                                     L11_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_byspouse"} = \hlkwd{case_when}(L12_bin == 1 ~ \hlstr{"Yes"}, # Person whose partner loses citizenship of a country
+                                     L12_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_parent_annul"} = \hlkwd{case_when}(L13a_bin == 1 ~ \hlstr{"Yes"}, # Person whose descent from a citizen is annulled
+                                         L13a_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_adopt_abroad"} = \hlkwd{case_when}(L13b_bin == 1 ~ \hlstr{"Yes"}, # Loss through adoption or guardianship abroad
+                                         L13b_bin == 0 ~ \hlstr{"No"}),
+         \hlstr{"loss_former_stateless"} = \hlkwd{case_when}(L14_bin == 1 ~ \hlstr{"Yes"}, # Former stateless person who acquired foreigh citizenship
+                                             L14_bin == 0 ~ \hlstr{"No"}))
+\hlcom{# remove unnecessary columns }
+citizen_tidy <- citizen_tidy[,-5:-34]
+
+\hlcom{# sanity check point}
+citizen_tidy
+```
+I recoded countries that permit dual citizenship.
+
+```\{r\}
+\hlcom{# does the country allow dual citizenship?}
+citizen_tidy <- citizen_tidy %>%
+  \hlkwd{mutate}(\hlstr{"dual_permit"} = \hlkwd{case_when}(dualcit_comb == 0 ~ \hlstr{"No"},
+                                   dualcit_comb > 0 ~ \hlstr{"Yes"})) %>%
+  \hlkwd{select}(-\hlkwd{c}(dualcit_comb)) %>%
+  \hlkwd{relocate}(\hlstr{"dual_permit"}, .after = \hlstr{"year"}) %>%
+  \hlkwd{relocate}(\hlstr{"country"}, .after = \hlstr{"year"})
+
+\hlcom{# sanity check point}
+citizen_tidy
+```
+\hlcom{# Visualizing the Dataset}
+
+After all of the `\hlkwd{mutate}()` and `\hlkwd{case_when}()` coding, visualizing the data was the next step. To start the process, I grabbed the frequencies of the characters `yes` and `no` with `\hlkwd{group_by}()` and `\hlkwd{summarise_by}()`. 
+
+```\{r\}
+\hlcom{# get sum of each variable}
+citizen_tidy %>% 
+  \hlkwd{group_by}(`dual_permit`) %>%
+  \hlkwd{summarise}(n_dual = \hlkwd{sum}(!\hlkwd{is.na}(`country`)))
+```
+Since I was dealing with 47 variables, I looked for codes to cut down time and space. Insetad of repeating the above codes, I used the following codes below:
+
+```\{r\}
+\hlcom{# now let's try to repeat that process across the board}
+citizen_sum <- citizen_tidy %>%
+  \hlkwd{select}(5:50) %>%
+  \hlkwd{as.tibble}() 
+
+\hlcom{# compute unique levels in data frame}
+lvls <- \hlkwd{unique}(\hlkwd{unlist}(citizen_sum))
+
+\hlcom{# apply the sum per value }
+citizen_sum <- \hlkwd{sapply}(citizen_sum, 
+                      \hlkwd{function}(x) \hlkwd{table}(\hlkwd{factor}(x, levels = lvls, 
+                                               ordered = TRUE)))
+
+\hlcom{# touch ups and add ons required}
+citizen_sum <- \hlkwd{as.data.frame}(citizen_sum)
+citizen_sum$Law <- \hlkwd{add_column}(\hlstr{"law"})
+citizen_sum[1, 47] = \hlstr{"yes"}
+citizen_sum[2,47] = \hlstr{"no"}
+
+\hlcom{# sanity check point}
+citizen_sum
+
+\hlkwd{dim}(citizen_sum)
+```
+
+After running the above codes, I collapsed the dataset into two rows with 47 variables. Since I was dealing with repetitive information, I used the `loop` function to generate my desired results. In other words, starting with `dual_permit` (countries that permit multiple nationalities), I generate 47 bar graphs for each variable.
+
+```\{r\}
+\hlcom{# time to graph}
+\hlcom{# let's not repeat ourselves}
+\hlkwd{for}(i in 1:\hlkwd{ncol}(citizen_sum)) \{                                                                 
+  \hlkwd{print}(\hlkwd{ggplot}(citizen_sum, \hlkwd{aes}(y = Law, x = citizen_sum[ , i])) +  \hlcom{# ggplot within for-loop}
+          \hlkwd{geom_bar}(stat = \hlstr{"identity"}, fill = \hlstr{"black"})) +
+    \hlkwd{ylab}(\hlstr{"Number of Countries"}) +
+    \hlkwd{coord_flip}()
+\}
+\hlcom{# i can't add the labels for each chart, so i suggest that one follows the dataset from left to right, starting with dual_permit}
+```
+
+Next, I condensed the 47 bar graphs into one stacked on one another. In order to execute this, I need to pivot my data from wide to long with `\hlkwd{pivot_longer}()`.
+
+```\{r\}
+\hlcom{# pivot time}
+citizen_pivot <- citizen_sum %>% \hlkwd{pivot_longer}(cols=\hlkwd{c}(1:46),
+                                              names_to=\hlstr{'law_type'},
+                                              values_to=\hlstr{'answers'}) 
+\hlcom{# sanity check point}
+citizen_pivot
+```
+```\{r\}
+\hlkwd{ggplot}(citizen_pivot,
+       \hlkwd{aes}(x = law_type,
+           y = answers,
+           fill = Law)) +
+  \hlkwd{geom_bar}(stat = \hlstr{"identity"},
+           position = \hlstr{"stack"}) +
+  \hlkwd{xlab}(\hlstr{"Citizenship law"}) +
+  \hlkwd{ylab}(\hlstr{"Number of countries"}) +
+  \hlkwd{ggtitle}(\hlstr{"Citizenship Laws by Country"}) +
+  \hlkwd{coord_flip}()
+```
+From my results, virtually all of the countries permit citizenship based on one being born in the country to citizens of said country, but a smaller but significant portion of those countries allow birthright \hlkwd{citizenship} (one of which is the USA), or automatic citizenship to newborns regardless of their parents' nationalities. In addition, the majority of the countries permit citizenship based on marriage, certain years of residency, and permit dual citizenship.
+
+In regards to loss of citizenship, most countries let former citizen renounce their citizenship voluntary. In addition, there are laws in place that warrant a loss of citizenship for the person. For example, the majority of the countries have laws that strip people of their citizenship if they gained through fraudulent means or if they served in a foreign government or \hlkwd{army} (the foreign country would be the country restricting dual nationality in order to serve in their government or army).
+
+Unfortunately for stateless people, most countries have very few, if any, pathways for them to gain citizenship, leaving them in a legal and societal limbo. 
+
+As I mentioned before, I kept the original dataset so I could work on the exceptions for acquiring or losing citizenship. To save space and time, I selected a few provisions, as seen below.
+
+```\{r\}
+\hlcom{# dataset for exceptions }
+citizen_loss <- citizenship %>%
+  \hlkwd{transmute}(\hlstr{"loss_newcitizen"} = \hlkwd{case_when}(L05_bin == 1 ~ \hlstr{"Yes"},
+                                          L05_bin == 0 ~ \hlstr{"No"}),
+            \hlstr{"categoryloss1"} = \hlkwd{case_when}(L05_cat == 1 ~ \hlstr{"automatic loss lapse"},
+                                       L05_cat == 2 ~ \hlstr{"some exceptions lapse"},
+                                       L05_cat == 3 ~ \hlstr{"lapse applicable only to naturalized citizens"},
+                                       L05_cat == 4 ~ \hlstr{"automatic loss withdrawal"},
+                                       L05_cat == 5 ~ \hlstr{"some exceptions withdrawal"},
+                                       L05_cat == 6 ~ \hlstr{"withdrawal applicable only to naturalized citizens"},
+                                       L05_cat == 0 ~ \hlstr{"no case"}),
+            \hlstr{"loss_byparent"} = \hlkwd{case_when}(L11_bin == 1 ~ \hlstr{"Yes"},
+                                        L11_bin == 0 ~ \hlstr{"No"}),
+            \hlstr{"categoryloss2"} = \hlkwd{case_when}(L11_cat == 0 ~ \hlstr{"no case"}, 
+                                       L11_cat == 1 ~ \hlstr{"generally applicable"},
+                                       L11_cat == 2 ~ \hlstr{"some exceptions"},
+                                       L11_cat == 3 ~ \hlstr{"lost on particular grounds"},
+                                       L11_cat == 4 ~ \hlstr{"loss on particular grounds with exceptions"}),
+            \hlstr{"loss_foundling"} = \hlkwd{case_when}(L14_bin == 1 ~ \hlstr{"Yes"},
+                                         L14_bin == 0 ~ \hlstr{"No"}),
+            \hlstr{"categoryloss3"} = \hlkwd{case_when}(L14_cat == 1  ~ \hlstr{"loss applies with citizenship as foundling"},
+                                        L14_cat == 2 ~ \hlstr{"loss applies with citizenship as stateless"},
+                                        L14_cat == 3 ~ \hlstr{"generally applicable"},
+                                        L14_cat == 0 ~ \hlstr{"no case"}))
+\hlcom{# sanity checkpoint}
+citizen_loss
+```
+I found this `ggplot` code really helpful: these interactive dendrograms branched off based on exceptions, as I coded and modeled below: 
+
+```\{r\}
+\hlcom{# interactive dendrogram}
+
+\hlcom{# loss of citizenship from acquiring another citizenship since the new country restricts dual citizenship}
+\hlcom{# create dataset}
+loss_newcitizen <- \hlkwd{select}(citizen_loss, \hlkwd{c}(loss_newcitizen, categoryloss1)) 
+loss_newcitizen <- \hlkwd{as.data.frame}(loss_newcitizen)
+  
+
+\hlkwd{collapsibleTree}(loss_newcitizen, 
+                hierarchy = \hlkwd{c}(\hlstr{"loss_newcitizen"}, \hlstr{"categoryloss1"}),
+                nodeSize = \hlstr{"leafCount"},
+                width = 500,
+                zoomable = TRUE)
+\hlcom{# I'm not sure why the no node has multiple branches when it should have one}
+
+\hlcom{# loss of citizenship from parents losing their citizenship}
+loss_byparent <- \hlkwd{select}(citizen_loss, \hlkwd{c}(loss_byparent, categoryloss2)) 
+loss_byparent <- \hlkwd{as.data.frame}(loss_byparent)
+
+\hlkwd{collapsibleTree}(loss_byparent, 
+                hierarchy = \hlkwd{c}(\hlstr{"loss_byparent"}, \hlstr{"categoryloss2"}),
+                nodeSize = \hlstr{"leafCount"},
+                width = 500,
+                zoomable = TRUE)
+
+\hlcom{# when a former stateless person acquires citizenship from another country}
+loss_founding <- \hlkwd{select}(citizen_loss, \hlkwd{c}(loss_foundling, categoryloss3)) 
+loss_founding <- \hlkwd{as.data.frame}(loss_founding)
+
+\hlkwd{collapsibleTree}(loss_founding, 
+                hierarchy = \hlkwd{c}(\hlstr{"loss_foundling"}, \hlstr{"categoryloss3"}),
+                nodeSize = \hlstr{"leafCount"},
+                width = 500,
+                zoomable = TRUE)
+
+```
+
+I repeated this process with the laws in regards to acquiring citizenship:
+
+```\{r\}
+citizen_acq <- citizenship %>%
+  \hlkwd{transmute}(\hlstr{"acq_borndescent"} = \hlkwd{case_when}(A01a_bin == 1 ~ \hlstr{"Yes"},
+                                          A01a_bin == 0 ~ \hlstr{"No"}),
+            \hlstr{"categoryacq1"} = \hlkwd{case_when}(A01a_cat == 1 ~ \hlstr{"generally applicable provision"},
+                                       A01a_cat == 2 ~ \hlstr{"dual citizenship restrictions"},
+                                       A01a_cat == 3 ~ \hlstr{"wedlock restriction"},
+                                       A01a_cat == 4 ~ \hlstr{"only if father is a citizen"},
+                                       A01a_cat == 5 ~ \hlstr{"only if citizen is part of a particular group"},
+                                       A01a_cat == 0 ~ \hlstr{"no provision"}),
+            \hlstr{"acq_bornabroad"} = \hlkwd{case_when}(A01b_bin == 1 ~ \hlstr{"Yes"},
+                                         A01b_bin == 0 ~ \hlstr{"No"}),
+            \hlstr{"categoryacq2"} = \hlkwd{case_when}(A01b_cat == 1 ~ \hlstr{"generally applicable provision"},
+                                       A01b_cat == 2 ~ \hlstr{"dual citizenship restrictions"},
+                                       A01b_cat == 3 ~ \hlstr{"wedlock restriction"},
+                                       A01b_cat == 4 ~ \hlstr{"only if father is a citizen"},
+                                       A01b_cat == 5 ~ \hlstr{"only if citizen is part of a particular group"},
+                                       A01b_cat == 6 ~ \hlstr{"generational restrictions"},
+                                       A01b_cat == 0 ~ \hlstr{"no provision"}),
+            \hlstr{"acq_marriage"} = \hlkwd{case_when}(A08_bin == 1 ~ \hlstr{"Yes"},
+                                       A08_bin == 0 ~ \hlstr{"No"}),
+            \hlstr{"categoryacq3"} = \hlkwd{case_when}(A08_cat == 1 ~ \hlstr{"generally applicable provision"},
+                                       A08_cat == 2 ~ \hlstr{"residence required"},
+                                       A08_cat == 3 ~ \hlstr{"only for female spouse of male \hlkwd{citizen} (no residence required)"},
+                                       A08_cat == 4 ~ \hlstr{"only for female spouse of male \hlkwd{citizen} (residence required)"},
+                                       A08_cat == 5 ~ \hlstr{"only for male spouse of female citizen"},
+                                       A08_cat == 6 ~ \hlstr{"provisions differ by gender"},
+                                       A08_cat == 7 ~ \hlstr{"only if spouse is a member of a particular group"},
+                                       A08_cat == 0 ~ \hlstr{"no provision"}))
+citizen_acq
+```
+
+```\{r\}
+\hlcom{# interactive dendrogram}
+\hlcom{# gain citizenship by being born in the country to a citizen}
+\hlcom{# create dataset}
+acq_borndescent <- \hlkwd{select}(citizen_acq, \hlkwd{c}(acq_borndescent, categoryacq1)) 
+acq_borndescent <- \hlkwd{as.data.frame}(acq_borndescent)
+
+\hlkwd{collapsibleTree}(acq_borndescent, 
+                hierarchy = \hlkwd{c}(\hlstr{"acq_borndescent"}, \hlstr{"categoryacq1"}),
+                nodeSize = \hlstr{"leafCount"},
+                width = 500,
+                zoomable = TRUE)
+
+\hlcom{# gain citizenship by being born abroad to a citizen}
+acq_bornabroad <- \hlkwd{select}(citizen_acq, \hlkwd{c}(acq_bornabroad, categoryacq2)) 
+acq_bornabroad <- \hlkwd{as.data.frame}(acq_bornabroad)
+
+\hlkwd{collapsibleTree}(acq_bornabroad, 
+                hierarchy = \hlkwd{c}(\hlstr{"acq_bornabroad"}, \hlstr{"categoryacq2"}),
+                nodeSize = \hlstr{"leafCount"},
+                width = 500,
+                zoomable = TRUE)
+
+\hlcom{# gain citizenship through marriage}
+acq_marriage <- \hlkwd{select}(citizen_acq, \hlkwd{c}(acq_marriage, categoryacq3)) 
+acq_marriage <- \hlkwd{as.data.frame}(acq_marriage)
+
+\hlkwd{collapsibleTree}(acq_marriage, 
+                hierarchy = \hlkwd{c}(\hlstr{"acq_marriage"}, \hlstr{"categoryacq3"}),
+                nodeSize = \hlstr{"leafCount"},
+                width = 500,
+                zoomable = TRUE)
+```
+
+To answer my research question, I condensed the columns by the frequencies of values `yes` and `no`, and merged them into one dataset.
+
+```\{r\}
+\hlcom{# what countries have more lax citizenship laws and what countries have more restrictive citizenship laws}
+citizen_yes <- \hlkwd{rowSums}(citizen_tidy == \hlstr{"Yes"}) %>%
+  \hlkwd{as.data.frame}()
+
+citizen_no <-\hlkwd{rowSums}(citizen_tidy == \hlstr{"No"}) %>%
+  \hlkwd{as.data.frame}()
+
+citizen_yes$country <- \hlkwd{add_column}(citizen_tidy$country)
+citizen_no$country <- \hlkwd{add_column}(citizen_tidy$country)
+
+\hlcom{# joint together}
+lax_or_restrict <- \hlkwd{merge}(citizen_yes,citizen_no,by=\hlkwd{c}(\hlstr{"country"}))
+lax_or_restrict <- \hlkwd{rename}(lax_or_restrict, \hlstr{"Lax_Provisions"} = \hlstr{"..x"})
+lax_or_restrict <- \hlkwd{rename}(lax_or_restrict, \hlstr{"Restrictive_Provisions"} = \hlstr{"..y"})
+
+\hlcom{# sanity check point}
+lax_or_restrict
+
+\hlcom{# most lax laws}
+lax_or_restrict %>%
+  \hlkwd{arrange}(\hlkwd{desc}(`Lax_Provisions`))
+
+\hlcom{# most restrictive laws}
+lax_or_restrict %>%
+  \hlkwd{arrange}(\hlkwd{desc}(`Restrictive_Provisions`))
+
+\hlcom{# tree maps}
+lax <- lax_or_restrict %>%
+  \hlkwd{arrange}(\hlkwd{desc}(`Lax_Provisions`))
+lax <- lax[1:10,]
+
+\hlkwd{treemap}(lax,
+            index=\hlstr{"country"},
+            vSize=\hlstr{"Lax_Provisions"},
+            type = \hlstr{"index"},
+            title= \hlstr{"Top 10 Countries of with Lax Citizenship Laws"})
+
+restrict <- lax_or_restrict %>%
+  \hlkwd{arrange}(\hlkwd{desc}(`Restrictive_Provisions`))
+restrict <- restrict[1:10,]
+
+\hlkwd{treemap}(restrict,
+            index=\hlstr{"country"},
+            vSize=\hlstr{"Restrictive_Provisions"},
+            type = \hlstr{"index"},
+            title= \hlstr{"Top 10 Countries of with Restrictive Citizenship Laws"})
+```
+
+The countries with the most lax citizenship laws are Germany, Greece, Austria, the Netherlands, and Finland, all in the European Union. The countires with the most restrictive citizenship laws are Uruguay, Palau, North Korea, China, and Cuba. 
+
+From all of these visualizations I coded, one could see stark differences between countries, even those neighboring each other. One country can be relatively open, while its neighbor is closed off to the world. 
+
+\hlcom{## Reflection and Conclusion}
+
+I had no prior experience with R before starting my masters in data analytics, and after many classes, resources, and Google searches, I must say that I did a great job on this project. Let me explain:
+
+Choosing a topic that interested me made the project more manageable. I was always interested in learning about other countries, such as cultures, laws, and societies in each country. This dataset of citizenship laws by each country is no different. I have visited 10 countries, and continue to visit more in the foreseeable future.
+
+I felt like I hit the jackpot when I stumbled upon this dataset on the database archival website Data is Plural. It was messy, tedious, and confusing to read: it was the perfect dataset to clean, manipulate, and visualize. The handy guide attached in the ZIP file was the cherry on the top. 
+
+The most challenging part of data analytics as a whole is trying to figure out which codes to use for my desired results. A map? Try a bunch of these \hlkwd{codes} (we won\hlstr{''}t guarantee your map would look funky). Forgot to capitalize a letter? Your data doesn\hlstr{'t exist. I have the basic idea on what I want my end results to be, but I have to spend hours looking for the right code and find the tiny problem I have been overlooking for those past hours. I give up, until I don'}t: the feeling of finding that one line of code is the feeling of success. 
+
+However, I wish I learned to code earlier in my childhood. I would have caught up with the rest of the class if I had a basic idea of coding, but it\hlstr{'s better to learn now than never. I'}m in the middle of my career change from marketing to data analytics, which permits me to work behind the scene. 
+
+Overall, the world is not our oyster and we must follow the laws wherever we go. It is always ideal to do research beforehand or hire an immigration lawyer. 
+
+\hlcom{## Resources}
+
+Cookbook for R, http://www.cookbook-r.com/. 
+
+Grolemund, Hadley Wickham and Garrett. R For Data Science. https://r4ds.had.co.nz/introduction.html. 
+
+Hoare, Jake. “How to Aggregate Data in R: R-Bloggers.” R, 12 July 2018, https://www.r-bloggers.com/2018/07/how-to-aggregate-data-in-r/. 
+
+Holtz, Yan. “Help and Inspiration for R Charts.” The R Graph Gallery, https://r-graph-gallery.com/. 
+
+“How to Count Number of Times a Character Appears in a Row.” Stack Overflow, 23 Nov. 2013, https://stackoverflow.com/questions/20100298/how-to-count-number-of-times-a-character-appears-in-a-row. 
+
+VINK, Maarten Peter, et al. “Globalcit Citizenship Law Dataset.” Cadmus Home, European University Institute, 1 Jan. 2020, https://cadmus.eui.eu/handle/1814/73190. 
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: attempt to use zero-length variable name}}\end{kframe}
+\end{knitrout}
+
+The R session information (including the OS info, R version and all
+packages used):
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{sessionInfo}\hlstd{()}
+\end{alltt}
+\begin{verbatim}
+## R version 4.2.2 (2022-10-31)
+## Platform: aarch64-apple-darwin20 (64-bit)
+## Running under: macOS Monterey 12.6
+## 
+## Matrix products: default
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] knitr_1.41            treemap_2.4-3         collapsibleTree_0.1.7
+##  [4] igraph_1.3.5          ggraph_2.1.0          forcats_0.5.2        
+##  [7] stringr_1.5.0         purrr_1.0.0           tidyr_1.2.1          
+## [10] tibble_3.1.8          ggplot2_3.4.0         tidyverse_1.3.2      
+## [13] dplyr_1.0.10          readr_2.1.3          
+## 
+## loaded via a namespace (and not attached):
+##  [1] viridis_0.6.2       httr_1.4.4          tidygraph_1.2.2     jsonlite_1.8.4     
+##  [5] viridisLite_0.4.1   modelr_0.1.10       shiny_1.7.4         assertthat_0.2.1   
+##  [9] highr_0.10          googlesheets4_1.0.1 cellranger_1.1.0    yaml_2.3.6         
+## [13] ggrepel_0.9.2       pillar_1.8.1        backports_1.4.1     glue_1.6.2         
+## [17] digest_0.6.31       promises_1.2.0.1    RColorBrewer_1.1-3  polyclip_1.10-4    
+## [21] rvest_1.0.3         colorspace_2.0-3    htmltools_0.5.4     httpuv_1.6.7       
+## [25] pkgconfig_2.0.3     broom_1.0.2         haven_2.5.1         xtable_1.8-4       
+## [29] scales_1.2.1        tweenr_2.0.2        later_1.3.0         tzdb_0.3.0         
+## [33] ggforce_0.4.1       timechange_0.1.1    googledrive_2.0.0   generics_0.1.3     
+## [37] farver_2.1.1        ellipsis_0.3.2      withr_2.5.0         lazyeval_0.2.2     
+## [41] cli_3.5.0           mime_0.12           magrittr_2.0.3      crayon_1.5.2       
+## [45] readxl_1.4.1        evaluate_0.19       data.tree_1.0.0     fs_1.5.2           
+## [49] fansi_1.0.3         MASS_7.3-58.1       xml2_1.3.3          tools_4.2.2        
+## [53] data.table_1.14.6   hms_1.1.2           gargle_1.2.1        lifecycle_1.0.3    
+## [57] gridBase_0.4-7      plotly_4.10.1       munsell_0.5.0       reprex_2.0.2       
+## [61] compiler_4.2.2      rlang_1.0.6         grid_4.2.2          rstudioapi_0.14    
+## [65] htmlwidgets_1.6.0   rmarkdown_2.19      labeling_0.4.2      gtable_0.3.1       
+## [69] DBI_1.1.3           graphlayouts_0.8.4  R6_2.5.1            gridExtra_2.3      
+## [73] lubridate_1.9.0     fastmap_1.1.0       utf8_1.2.2          stringi_1.7.8      
+## [77] Rcpp_1.0.9          vctrs_0.5.1         dbplyr_2.2.1        tidyselect_1.2.0   
+## [81] xfun_0.36
+\end{verbatim}
+\begin{alltt}
+\hlkwd{Sys.time}\hlstd{()}
+\end{alltt}
+\begin{verbatim}
+## [1] "2022-12-28 20:06:50 EST"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+\end{document}

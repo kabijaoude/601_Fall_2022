@@ -3,7 +3,15 @@ title: "Citizenship Laws by Country"
 description: "MY FINAL PROJECT - Citizenship Laws by Country"
 author: "KRISTIN ABIJAOUDE"
 date: "`r Sys.Date()`"
+<<<<<<< Updated upstream
 output: distill::distill_article
+=======
+format:
+  html:
+    toc: true
+    code-copy: true
+    code-tools: true
+>>>>>>> Stashed changes
 categories:
   - kristin_abijaoude
   - Final_Project
@@ -19,6 +27,7 @@ library(ggraph)
 library(igraph)
 library(collapsibleTree)
 library(treemap)
+library(knitr)
 
 knitr::opts_chunk$set(echo = TRUE)
 ```

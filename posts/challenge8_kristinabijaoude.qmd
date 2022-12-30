@@ -1,21 +1,8 @@
 ---
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-title: "Challenge 8 Kristin Abijaoude"
-author: "Kristin Abijaoude"
-description: "Joining Data"
-date: "12/12/2022"
-=======
-=======
->>>>>>> Stashed changes
 title: "Kristin Abijaoude Challenge 8"
 author: "Kristin Abijaoude"
 description: "Joining Data"
 date: "12/09/2022"
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 format:
   html:
     toc: true
@@ -24,15 +11,7 @@ format:
 categories:
   - challenge_8
   - faostat
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  - kristinabijaoude
-=======
   - kristin_abijaoude
->>>>>>> Stashed changes
-=======
-  - kristin_abijaoude
->>>>>>> Stashed changes
 ---
 
 ```{r}
@@ -42,125 +21,16 @@ categories:
 
 library(tidyverse)
 library(ggplot2)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 library(ggridges)
 library(ggplot2)
 library(dplyr)
 library(viridis)
 library(hrbrthemes)
 library(plotly)
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
 ```
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-## Challenge Overview
-
-Today's challenge is to:
-
-1)  read in multiple data sets, and describe the data set using both words and any supporting information (e.g., tables, etc)
-2)  tidy data (as needed, including sanity checks)
-3)  mutate variables as needed (including sanity checks)
-4)  join two or more data sets and analyze some aspect of the joined data
-
-(be sure to only include the category tags for the data you use!)
-
-:::{.panel-tabset}
-
-## FAOSTAT: Reading Data
-
-:::{.panel-tabset}
-
-### Open Cattle Dairy Data
-
-```{r}
-# open cattle data
-library(readr)
-FAO_cattle <- read_csv("_data/FAOSTAT_cattle_dairy.csv")
-FAO_cattle
-```
-:::{.panel-tabset}
-
-### Open Country Group Data
-
-```{r}
-# open country data
-FAO_country <- read_csv("_data/FAOSTAT_country_groups.csv")
-FAO_country
-```
-:::{.panel-tabset}
-
-### Open Egg Chicken Data
-
-```{r}
-# open egg chicken data
-FAO_egg <- read_csv("_data/FAOSTAT_egg_chicken.csv")
-FAO_egg
-```
-:::{.panel-tabset}
-
-### Open Livestock Data
-
-```{r}
-# open livestock data
-FAO_livestock <- read_csv("_data/FAOSTAT_livestock.csv") 
-FAO_livestock
-```
-:::{.panel-tabset}
-
-## FAOSTAT: Tidying Data
-
-```{r}
-# in this dataset, several places overlap with one another. for example, Africa overlaps with African countries like Algeria and Zimbabwe, and the World overlaps with... all countries
-countrydata <- FAO_country %>%
-  rename(country_group = `Country Group`)  %>%
-  distinct()
-
-# sanity checkpoint
-countrydata
-
-# let's use Africa as an example 
-countrydata %>%
-  filter(country_group == "Africa")
-```
-
-```{r}
-half <- countrydata %>%
-  group_by(country_group) %>%
-  summarise(n=n()) %>%
-  arrange(desc(n))
-otherhalf <- c(1:round(nrow(half)/2))
-
-knitr::kable(list(half[otherhalf,],
-                  matrix(numeric(), nrow=0, ncol=1),
-                  half[-otherhalf,]),
-             caption = "Countries in Country Groups")
-```
-
-```{r}
-countrydatawide <- countrydata %>%
-  filter(country_group!= "World") %>%
-  pivot_wider(names_from = country_group, values_from = 1) %>%
-  
-# sanity check point
-countrydatawide
-colnames(countrydatawide) # include column names as well
-```
-
-```{r}
-
-=======
-=======
->>>>>>> Stashed changes
 ## Read in data
 
 For this challenge, I used the FAOSTAT Livestock dataset and the FAOSTAT country dataset for the purpose of joining the two together. I didn't really know where to start on this challenge, so I went through some solutions for inspiration, but eventually, I wanted to figure out how to combine the two datasets myself.
@@ -253,9 +123,4 @@ afg <- afghan %>%
 # make it interactive
 afg <- ggplotly(afg, tooltip="text")
 afg
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 ```
-
